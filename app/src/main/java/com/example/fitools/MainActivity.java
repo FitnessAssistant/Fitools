@@ -10,10 +10,12 @@ public class MainActivity extends AppCompatActivity {
 
     //我写了一大段代码--玥玥
     //第二次实验-Santa
+    //第三次实验.采用分支形式,开放团队队员权限
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //我又写了一大段代码-玥玥
+        //哒哒写了一大堆代码-Santa
         setContentView(R.layout.activity_main);
     }
 }
