@@ -3,4 +3,17 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="ssgray_search_border">#eeedef</color><!--浅浅灰（搜索框）-->
+    <color name="msgray_border">#303F9F</color><!--中浅灰（线）-->
+    <color name="sgray_icon">#cdcdcd</color><!--浅灰（图标）-->
+    <color name="gray_word">#9A9A9A</color><!--灰色（字）-->
+    <color name="black_icon">#2c2c2c</color><!--黑（图标）-->
+    <color name="sblack">#564F5F</color><!--浅黑-->
+    <color name="ssblack">#696669</color><!--浅浅黑-->
+    <color name="orange">#f7921c</color><!--橙色-->
+    <color name="yellow_major">#ffc50a</color><!--艳黄（主颜色）-->
+    <color name="yellow_icon">#ffbf00</color><!--黄（图标）-->
+    <color name="gray_bottom_border">#dedcde</color><!--灰（底栏描边）-->
+    <color name="bgdgray">#ecf0f2</color><!--大背景灰-->
+    <color name="colorWhite">#fefefe</color><!--白色-->
 </resources>

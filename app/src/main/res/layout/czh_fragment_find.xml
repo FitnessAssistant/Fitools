@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="com.example.fitools.caizihuan.FindFragment"
+    android:orientation="vertical"
+    android:background="@color/sblack">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="@dimen/page_margintop">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/czh_search_background"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/search"
+                android:layout_marginLeft="10dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="吃不胖的秘诀！你知道吗？"
+                android:gravity="center_vertical"
+                android:textColorHint="@color/gray_word"
+                android:textColor="@color/sblack"
+                android:textSize="18sp"
+                android:paddingLeft="3dp"
+                android:background="@null"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <ScrollView
+        android:id="@+id/home_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bgdgray">
+
+    </ScrollView>
+
+</LinearLayout>
