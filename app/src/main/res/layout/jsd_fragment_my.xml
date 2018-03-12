@@ -202,7 +202,7 @@
         android:layout_width="match_parent"
         android:layout_marginTop="30dp"
         android:background="@mipmap/my_lines"
-        android:layout_height="220dp">
+        android:layout_height="300dp">
         <TableRow
             android:layout_weight="1">
             <RelativeLayout
@@ -307,7 +307,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/my_news"/>
+                    android:src="@mipmap/my_diet"/>
                 <TextView
                     android:id="@+id/my_diet_text"
                     android:textSize="15dp"
