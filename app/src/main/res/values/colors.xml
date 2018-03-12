@@ -16,4 +16,5 @@
     <color name="gray_bottom_border">#dedcde</color><!--灰（底栏描边）-->
     <color name="bgdgray">#ecf0f2</color><!--大背景灰-->
     <color name="colorWhite">#fefefe</color><!--白色-->
+    <color name="white">#ffffff</color><!--纯白色-->
 </resources>
