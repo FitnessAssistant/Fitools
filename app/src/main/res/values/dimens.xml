@@ -11,5 +11,6 @@
     <dimen name="main_pageimg_height">20dp</dimen>
     <dimen name="main_pageimg_margintop">7dp</dimen>
     <dimen name="page_margintop">25dp</dimen><!--状态栏高度-->
+    <dimen name="home_flashview_height">180dp</dimen><!--发现页轮播图高度-->
 
 </resources>

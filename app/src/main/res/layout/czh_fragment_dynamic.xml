@@ -1,13 +1,36 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.fitools.caizihuan.DynamicFragment">
+    tools:context="com.example.fitools.caizihuan.DynamicFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/home_topstop_ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorWhite"
+        android:paddingTop="15dp"
+        android:paddingBottom="20dp">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dynamic_rv_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:scrollbars="vertical"
+            android:background="@color/colorWhite">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/colorWhite">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dynamic_rv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
 
-</FrameLayout>
+        </android.support.v7.widget.RecyclerView>
+    </ScrollView>
+</LinearLayout>

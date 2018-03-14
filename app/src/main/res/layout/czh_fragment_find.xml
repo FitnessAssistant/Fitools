@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
@@ -11,24 +12,24 @@
     android:background="@color/sblack">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:background="@color/colorWhite"
         android:layout_marginTop="@dimen/page_margintop">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/czh_search_background"
-            android:layout_marginTop="18dp"
-            android:layout_marginBottom="18dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/search"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="8dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -46,7 +47,136 @@
         android:id="@+id/home_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bgdgray">
+        android:background="@color/bgdgray"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.gc.flashview.FlashView
+                android:id="@+id/find_banner_fv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_flashview_height"
+                app:effect="cube">
+            </com.gc.flashview.FlashView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:paddingTop="15dp">
+                <LinearLayout
+                    android:id="@+id/cll"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/calorie"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="食物卡路里"
+                        android:gravity="center"
+                        android:textSize="@dimen/midtext_size"
+                        android:textColor="@color/black_icon"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/arun"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/about_running"
+                        android:padding="1dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="约跑"
+                        android:gravity="center"
+                        android:textSize="@dimen/midtext_size"
+                        android:textColor="@color/black_icon"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/list"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/friends_list"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="好友排行榜"
+                        android:gravity="center"
+                        android:textSize="@dimen/midtext_size"
+                        android:textColor="@color/black_icon"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="18dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="文章推荐"
+                        android:textSize="@dimen/bigtext_size"
+                        android:textColor="@color/black_icon"
+                        android:layout_marginLeft="5dp"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="11"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/tv_to_morearticles"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="查看全部"
+                        android:textSize="@dimen/msmalltext_size"
+                        android:textColor="@color/black_icon"/>
+                    <ImageView
+                        android:id="@+id/iv_to_morearticles"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow_right"/>
+                </LinearLayout>
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/find_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_centerVertical="true"
+                android:scrollbars="none"
+                android:background="@color/colorWhite">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
 
     </ScrollView>
 
