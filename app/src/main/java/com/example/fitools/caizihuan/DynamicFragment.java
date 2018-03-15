@@ -33,7 +33,7 @@ public class DynamicFragment extends Fragment {
     private DynamicContentAdapter contentAdapter;
     private List<DynamicContentItem>contentlist = new ArrayList<>();
     private MainActivity mainActivity;
-    private ImageView img_addfriends;
+    private ImageView img_addfriends,getimg;
 
     public DynamicFragment() {
         // Required empty public constructor
