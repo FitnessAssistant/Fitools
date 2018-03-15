@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--商品详情页主题的下边框-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- This is the main color -->
+    <item>
+        <shape>
+            <!--    边框颜色 -->
+            <solid android:color="#564F5F"/>
+        </shape>
+    </item>
+    <!-- 给View的下 设置5dp的边框 -->
+    <item android:bottom="3dp">
+        <shape>
+            <!--     View填充颜色 -->
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+
+</layer-list>

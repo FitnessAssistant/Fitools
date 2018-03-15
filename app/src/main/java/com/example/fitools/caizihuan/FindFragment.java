@@ -13,7 +13,7 @@ import com.gc.flashview.FlashView;
 import com.example.fitools.R;
 import com.gc.flashview.constants.EffectConstants;
 import android.support.v7.widget.RecyclerView;
-import android.widget.SimpleAdapter;
+
 import java.util.ArrayList;
 
 /**
@@ -24,7 +24,7 @@ public class FindFragment extends Fragment {
     private FlashView findfv;
     private ArrayList<String> imageUrls;
     private Context context;
-    private ArrayList<DataItemOne> item_list;
+    private ArrayList<DataItem> item_list;
     private String titles[] = new String[]{"你真的相信体重秤上的数字？","手把手教你吃掉自己的冬膘","这四种食物，身材好的人不吃"};//文章标题
     private String contents[] = new String[]{"为什么越练越重？这才是真正的原因！","今天不跟你讲什么控制食欲，低盐低脂的大空话，手把手教你定制........","那些身材好的人，到底每天吃什么东西？难道真有什么神奇的食物........"};//文章内容
     private int imgsrc[] = new int[]{R.mipmap.find_item1,R.mipmap.find_item2,R.mipmap.find_item3};//文章图片
@@ -72,9 +72,9 @@ public class FindFragment extends Fragment {
     * 获取数据
     * */
     public void initDatas(){
-        item_list = new ArrayList<DataItemOne>();
+        item_list = new ArrayList<DataItem>();
         for (int i = 0; i < imgsrc.length; i++) {
-            DataItemOne data = new DataItemOne();
+            DataItem data = new DataItem();
             data.setImgsrc(imgsrc[i]);
             data.setTitle(titles[i]);
             data.setContent(contents[i]);
@@ -100,7 +100,7 @@ public class FindFragment extends Fragment {
         mainActivity = (MainActivity) this.getActivity();
         Context current_view = mainActivity.getApplicationContext();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(current_view));
-        DataItemOneAdapter dataItemOneAdapter = new DataItemOneAdapter(current_view,item_list);
+        DataItemAdapter dataItemOneAdapter = new DataItemAdapter(current_view,item_list);
         mRecyclerView.setAdapter(dataItemOneAdapter);
 
     }
