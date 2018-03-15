@@ -2,11 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.example.fitools.jiangshengda.FitFragment">
 
 
     <LinearLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <RelativeLayout
@@ -66,9 +68,10 @@
                 android:src="@mipmap/search"/>
         </RelativeLayout>
     </LinearLayout>
-    <ScrollView
+    <com.gc.flashview.FlashView
+        android:id="@+id/fit_banner_fv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </ScrollView>
+        android:layout_height="@dimen/home_flashview_height"
+        app:effect="cube">
+    </com.gc.flashview.FlashView>
 </LinearLayout>
