@@ -14,6 +14,17 @@ public class DynamicContentItem {
     private String comment_number;//评论数量
     private String zan_number;//点赞数量
 
+    public DynamicContentItem(int id, int imgsrc, int imgsrc_header, String name, String time, String estimate, String comment_number, String zan_number) {
+        this.id = id;
+        this.imgsrc = imgsrc;
+        this.imgsrc_header = imgsrc_header;
+        this.name = name;
+        this.time = time;
+        this.estimate = estimate;
+        this.comment_number = comment_number;
+        this.zan_number = zan_number;
+    }
+
     public int getId() {
         return id;
     }

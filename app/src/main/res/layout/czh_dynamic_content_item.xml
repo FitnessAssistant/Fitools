@@ -3,17 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/gray_bottom_border">
+    android:background="@color/colorWhite"
+    android:layout_marginBottom="15dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="5dp">
         <com.example.fitools.jiangshengda.CircleImageView
             android:id="@+id/user_header"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:src="@mipmap/mitao" />
         <LinearLayout
@@ -30,7 +31,8 @@
                 android:textColor="@color/black_icon"
                 android:textSize="@dimen/bmidtext_size"
                 android:gravity="bottom"
-                android:paddingBottom="3dp"/>
+                android:paddingBottom="1dp"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
@@ -38,7 +40,8 @@
                 android:layout_weight="1"
                 android:text="一天前"
                 android:textColor="@color/gray_word"
-                android:textSize="@dimen/msmalltext_size"/>
+                android:textSize="@dimen/msmalltext_size"
+                android:paddingTop="1dp"/>
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +54,7 @@
     <ImageView
         android:id="@+id/iv_content"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:src="@mipmap/find_item1"
         android:scaleType="fitXY"/>
     <TextView
@@ -60,7 +63,7 @@
         android:layout_height="wrap_content"
         android:text="今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
         android:textColor="@color/black_icon"
-        android:textSize="@dimen/midtext_size"
+        android:textSize="@dimen/bmidtext_size"
         android:layout_margin="10dp"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"/>
@@ -82,7 +85,8 @@
             android:id="@+id/icon_comment"
             android:layout_width="@dimen/dynamic_icon_height"
             android:layout_height="@dimen/dynamic_icon_height"
-            android:src="@mipmap/icon_comment"/>
+            android:src="@mipmap/icon_comment"
+            android:layout_marginTop="2dp"/>
         <TextView
             android:id="@+id/comment_number"
             android:layout_width="0dp"
