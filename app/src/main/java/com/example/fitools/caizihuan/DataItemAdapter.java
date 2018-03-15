@@ -16,19 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 发现界面文章1的Adapter
+ * 发现界面文章的Adapter
  */
 
-public class DataItemOneAdapter extends RecyclerView.Adapter implements View.OnClickListener{
+public class DataItemAdapter extends RecyclerView.Adapter implements View.OnClickListener{
     public static enum ITEM_TYPE {
         ITEM_TYPE_One,
         ITEM_TYPE_Two
     }
     private Context context;
-    private List<DataItemOne> hci = new ArrayList<>();
+    private List<DataItem> hci = new ArrayList<>();
     private OnItemClickListener mOnItemClickListener = null;
 
-    public DataItemOneAdapter(Context context, List<DataItemOne> hci) {
+    public DataItemAdapter(Context context, List<DataItem> hci) {
         this.context = context;
         this.hci = hci;
     }

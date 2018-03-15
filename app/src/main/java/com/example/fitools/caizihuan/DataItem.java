@@ -2,9 +2,9 @@ package com.example.fitools.caizihuan;
 
 /**
  * Created by czh on 2018/3/13.
- * 发现页文章item数据2
+ * 发现页文章item数据
  */
-public class DataItemTwo {
+public class DataItem {
     private int imgsrc;
     private String title;
     private String content;
