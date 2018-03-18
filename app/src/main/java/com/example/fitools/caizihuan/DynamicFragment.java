@@ -31,7 +31,6 @@ public class DynamicFragment extends Fragment {
     private LinearLayoutManager layoutManager;
     private DynamicContentAdapter contentAdapter;
     private List<DynamicContentItem>contentlist = new ArrayList<>();
-    private MainActivity mainActivity;
     private ImageView img_addfriends;
 
     public DynamicFragment() {
