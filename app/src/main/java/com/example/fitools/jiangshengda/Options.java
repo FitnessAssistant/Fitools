@@ -6,9 +6,9 @@ package com.example.fitools.jiangshengda;
 
 public class Options {
     private String Name;
-    private int Time;
+    private String Time;
 
-    public Options(long id,String name,int time){
+    public Options(long id,String name,String time){
         this.id = id;
         Name = name;
         Time = time;
@@ -17,6 +17,18 @@ public class Options {
     private long id;
 
     public long getId(){ return id; }
+
+    public void setId(long id){ this.id = id;}
+
+    public String getName(){return Name;}
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getTime(){return Time;}
+
+    public void setTime(String time){Time = time;}
 }
 
 

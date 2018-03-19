@@ -9,4 +9,6 @@
     <string name="my_fans">68</string><!--粉丝-->
     <string name="my_sportime">0</string><!--总运动时长-->
     <string name="my_ranking">12</string><!--本周好友排名-->
+    <string name="fit_option_name">高强度全身燃脂</string>
+    <string name="fit_option_time">7</string>
 </resources>

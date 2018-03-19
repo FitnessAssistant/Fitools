@@ -18,10 +18,12 @@ android {
 }
 
 dependencies {
+    //noinspection GradleCompatible
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:support-v4:26.+'
     compile files('libs/nineoldandroids-2.4.0.jar')
     compile files('libs/universal-image-loader-1.9.3.jar')
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
 }
 buildscript {
     repositories {
