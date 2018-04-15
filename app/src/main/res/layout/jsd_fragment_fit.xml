@@ -8,6 +8,7 @@
 
 
     <LinearLayout
+        android:id="@+id/fit_ll"
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="60dp">
@@ -68,99 +69,11 @@
                 android:src="@mipmap/search"/>
         </RelativeLayout>
     </LinearLayout>
-    <ScrollView
-        android:id="@+id/Sv"
+    <FrameLayout
+        android:id="@+id/fit_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-       <LinearLayout
-           android:orientation="vertical"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <com.gc.flashview.FlashView
-               android:id="@+id/fit_banner_fv"
-               android:layout_width="match_parent"
-               android:layout_height="200dp"
-               app:effect="cube">
-           </com.gc.flashview.FlashView>
-           <RelativeLayout
-               android:layout_marginTop="30dp"
-               android:layout_width="match_parent"
-               android:background="@drawable/shape_fit_options"
-               android:layout_height="35dp">
-               <TextView
-                   android:textSize="12dp"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="我的训练"
-                   android:layout_centerVertical="true"
-                   android:layout_marginLeft="10dp"/>
-           </RelativeLayout>
-           <com.example.fitools.jiangshengda.ListViewForScrollView
-               android:id="@+id/Lv"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="vertical">
-           </com.example.fitools.jiangshengda.ListViewForScrollView>
 
-           
+    </FrameLayout>
 
-           <RelativeLayout
-               android:layout_marginTop="35dp"
-               android:layout_width="match_parent"
-               android:layout_height="180dp"
-               android:background="@mipmap/showmore">
-               <RelativeLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:background="#000000"
-                   android:alpha="0.6">
-               </RelativeLayout>
-           <TableLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
-               <TableRow
-                   android:layout_width="match_parent"
-                   android:layout_weight="1"></TableRow>
-               <TableRow
-                   android:layout_width="match_parent"
-                   android:layout_weight="1">
-                   <RelativeLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="match_parent">
-                       <TextView
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="发现更多训练"
-                           android:textStyle="bold"
-                           android:textSize="32dp"
-                           android:layout_marginLeft="30dp"
-                           android:layout_centerVertical="true"
-                           android:textColor="@color/white"/>
-                   </RelativeLayout>
-               </TableRow>
-               <TableRow
-                   android:layout_width="match_parent"
-                   android:layout_weight="1">
-                   <RelativeLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="match_parent">
-                       <Button
-                           android:id="@+id/fit_checkexcerice"
-                           android:layout_width="110dp"
-                           android:layout_marginLeft="35dp"
-                           android:layout_height="40dp"
-                           android:layout_centerVertical="true"
-                           android:text="查看训练"
-                           android:background="@drawable/shape" />
-                   </RelativeLayout>
-               </TableRow>
-               <TableRow
-                   android:layout_width="match_parent"
-                   android:layout_weight="1"></TableRow>
-           </TableLayout>
-
-
-           </RelativeLayout>
-       </LinearLayout>
-    </ScrollView>
 </LinearLayout>

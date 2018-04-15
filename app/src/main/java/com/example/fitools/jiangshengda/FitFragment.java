@@ -1,24 +1,35 @@
 package com.example.fitools.jiangshengda;
 
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.example.fitools.R;
 import com.example.fitools.caizihuan.DataItem;
 import com.example.fitools.caizihuan.DataItemAdapter;
+import com.example.fitools.caizihuan.DynamicFragment;
+import com.example.fitools.caizihuan.FindFragment;
 import com.gc.flashview.FlashView;
 import com.gc.flashview.constants.EffectConstants;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 
@@ -26,65 +37,104 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class FitFragment extends Fragment {
-    //ListView
-    private ArrayList<Options> ls = new ArrayList<Options>();
-    private ListViewForScrollView lv;
-    private OptionsAdapter mAdapter;
-    private ArrayAdapter<String> adapter;
-    //解决ListViewForScrollView而进行的操作
-    private ScrollView sv;
 
-    private View fitlayout;
-    private FlashView fitfv;
-    private ArrayList<String> imageUrls;
-    private Context context;
+    private TrainFragment mTrain;
+    private GoogleApiClient client;
+    private RunFragment mRun;
+    private LinearLayout fitll;
+    private RelativeLayout exercise_btn;
+    private RelativeLayout run_btn;
 
-    private void getData() {
-        ls.add(new Options((long) 1, "高强度全身燃脂","7") );
-        ls.add(new Options((long) 2, "暴汗燃脂八分钟","8") );
-        ls.add(new Options((long) 3, "十分钟挺拔身姿","10") );
-        ls.add(new Options((long) 4, "含胸驼背改善练习","12") );
+
+
+    /**
+     * 初始化Fragment
+     */
+    private void initFragments(){
+        mTrain = new TrainFragment();
+        mRun = new RunFragment();
+    }
+
+    /**
+     * 设置锻炼界面
+     */
+    private void setTrainPage(){
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fit_fl,mTrain);
+        ft.commit();
+        fitll.invalidate();
+    }
+
+    //切换到跑步页面
+    private void setRunPage() {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        if (mRun == null) {
+            mRun = new RunFragment();
+        }
+        //3、设置页面
+        transaction.replace(R.id.fit_fl, mRun);
+        //4、执行更改
+        transaction.commit();
+    }
+
+    /**
+     * 注册事件监听器
+     */
+    private void setListener(){
+        exercise_btn.setOnClickListener(new MyListener());
+        run_btn.setOnClickListener(new MyListener());
+    }
+    /**
+     * 定义底栏点击事件
+     */
+    class MyListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v){
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            switch (v.getId()){
+                case R.id.exercise_btn:
+                    ft.replace(R.id.fit_fl,mTrain);
+                    break;
+                case R.id.run_btn:
+                    setRunPage();
+                    break;
+            }
+            ft.commit();
+            fitll.invalidate();
+        }
     }
 
     public FitFragment() {
         // Required empty public constructor
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-            View fitlayout = inflater.inflate(R.layout.jsd_fragment_fit, null);
-            getData();
+        View fitlayout = inflater.inflate(R.layout.jsd_fragment_fit, null);
 
-            mAdapter = new OptionsAdapter(getContext(), ls);
-            //解决ListViewForScrollView而进行的操作
-            sv = (ScrollView) fitlayout.findViewById(R.id.Sv);
-            sv.smoothScrollTo(0, 0);
+        fitll = (LinearLayout) fitlayout.findViewById(R.id.fit_ll);
+        exercise_btn = (RelativeLayout) fitlayout.findViewById(R.id.exercise_btn);
+        run_btn = (RelativeLayout) fitlayout.findViewById(R.id.run_btn);
 
-            lv = (ListViewForScrollView) fitlayout.findViewById(R.id.Lv);
-            lv.setAdapter(mAdapter);
-            fitfv = (FlashView)fitlayout.findViewById(R.id.fit_banner_fv);
-
-            context = this.getActivity().getApplicationContext();
-            flashview();//轮播图
-            /*refresh();//refresh页面刷新
-            verticalScroll();//文字自动滚动
-            timing();//计时器
-            getData();//获取数据
-            init();*/
+        initFragments();
+        setListener();
+        setTrainPage();
+        // 给各页面设置flag
+        client = new GoogleApiClient.Builder(getContext()).addApi(AppIndex.API).build();
+        switch (utils.flag){
+            case 1://显示锻炼页面
+                setTrainPage();
+                break;
+            case 2://显示跑步页面
+                setRunPage();
+                break;
+        }
         return fitlayout;
     }
-     /**
-     * 轮播图
-     */
-    public void flashview(){
-        imageUrls = new ArrayList<String>();
-        imageUrls.add("https://desk-fd.zol-img.com.cn/t_s1024x768c5/g4/M06/06/0B/Cg-4zFTv4zmINhM9ABX5yHpH5GYAAVpZgI6vOUAFfng315.jpg");
-        imageUrls.add("https://desk-fd.zol-img.com.cn/t_s1024x768c5/g5/M00/02/09/ChMkJlbKzkeIAUnsAA6Bu85BPKMAALJJQGGbHMADoHT791.jpg");
-        imageUrls.add("https://desk-fd.zol-img.com.cn/t_s1024x768c5/g4/M09/0C/09/Cg-4zFT2gkKIDefbAALTUAw6274AAWA2QMB-l0AAtNo521.jpg");
-        fitfv.setImageUris(imageUrls);
-        fitfv.setEffect(EffectConstants.DEFAULT_EFFECT);
-    }
+
 }
