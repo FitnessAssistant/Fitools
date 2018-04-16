@@ -33,6 +33,7 @@ public class TrainFragment extends Fragment {
     private Context context;
 
     private void getData() {
+        ls.clear();
         ls.add(new Options((long) 1, "高强度全身燃脂","7") );
         ls.add(new Options((long) 2, "暴汗燃脂八分钟","8") );
         ls.add(new Options((long) 3, "十分钟挺拔身姿","10") );
@@ -50,6 +51,7 @@ public class TrainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View trainlayout = inflater.inflate(R.layout.jsd_fragment_train, container, false);
+
         getData();
 
         mAdapter = new OptionsAdapter(getActivity(), ls);
@@ -75,9 +77,12 @@ public class TrainFragment extends Fragment {
      */
     public void flashview(){
         imageUrls = new ArrayList<String>();
-        imageUrls.add("https://desk-fd.zol-img.com.cn/t_s1024x768c5/g4/M06/06/0B/Cg-4zFTv4zmINhM9ABX5yHpH5GYAAVpZgI6vOUAFfng315.jpg");
-        imageUrls.add("https://desk-fd.zol-img.com.cn/t_s1024x768c5/g5/M00/02/09/ChMkJlbKzkeIAUnsAA6Bu85BPKMAALJJQGGbHMADoHT791.jpg");
-        imageUrls.add("https://desk-fd.zol-img.com.cn/t_s1024x768c5/g4/M09/0C/09/Cg-4zFT2gkKIDefbAALTUAw6274AAWA2QMB-l0AAtNo521.jpg");
+        //imageUrls.get(R.mipmap.banner1);
+        //imageUrls.get(R.mipmap.banner2);
+        //imageUrls.get(R.mipmap.banner3);
+        imageUrls.add("http://seopic.699pic.com/photo/00012/1518.jpg_wh1200.jpg");
+        imageUrls.add("http://seopic.699pic.com/photo/00000/5551.jpg_wh1200.jpg");
+        imageUrls.add("http://seopic.699pic.com/photo/00002/0052.jpg_wh1200.jpg");
         trainfv.setImageUris(imageUrls);
         trainfv.setEffect(EffectConstants.DEFAULT_EFFECT);
     }

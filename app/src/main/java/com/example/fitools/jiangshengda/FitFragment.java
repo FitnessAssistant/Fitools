@@ -44,7 +44,8 @@ public class FitFragment extends Fragment {
     private LinearLayout fitll;
     private RelativeLayout exercise_btn;
     private RelativeLayout run_btn;
-
+    private ImageView train_line;
+    private ImageView run_line;
 
 
     /**
@@ -63,6 +64,8 @@ public class FitFragment extends Fragment {
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fit_fl,mTrain);
         ft.commit();
+        train_line.setVisibility(View.VISIBLE);
+        run_line.setVisibility(View.INVISIBLE);
         fitll.invalidate();
     }
 
@@ -97,9 +100,13 @@ public class FitFragment extends Fragment {
             switch (v.getId()){
                 case R.id.exercise_btn:
                     ft.replace(R.id.fit_fl,mTrain);
+                    train_line.setVisibility(View.VISIBLE);
+                    run_line.setVisibility(View.INVISIBLE);
                     break;
                 case R.id.run_btn:
                     setRunPage();
+                    train_line.setVisibility(View.INVISIBLE);
+                    run_line.setVisibility(View.VISIBLE);
                     break;
             }
             ft.commit();
@@ -120,12 +127,14 @@ public class FitFragment extends Fragment {
         fitll = (LinearLayout) fitlayout.findViewById(R.id.fit_ll);
         exercise_btn = (RelativeLayout) fitlayout.findViewById(R.id.exercise_btn);
         run_btn = (RelativeLayout) fitlayout.findViewById(R.id.run_btn);
+        train_line = (ImageView) fitlayout.findViewById(R.id.exercise_bottomline);
+        run_line = (ImageView) fitlayout.findViewById(R.id.run_bottomline);
 
         initFragments();
         setListener();
         setTrainPage();
         // 给各页面设置flag
-        client = new GoogleApiClient.Builder(getContext()).addApi(AppIndex.API).build();
+        client = new GoogleApiClient.Builder(getActivity()).addApi(AppIndex.API).build();
         switch (utils.flag){
             case 1://显示锻炼页面
                 setTrainPage();
