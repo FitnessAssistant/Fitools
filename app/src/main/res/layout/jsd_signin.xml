@@ -5,12 +5,13 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="70dp">
         <ImageView
-            android:id="@+id/jsd_register_return_btn"
+            android:id="@+id/jsd_signin_return_btn"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_centerVertical="true"
             android:src="@mipmap/turn_left"/>
         <TextView
@@ -158,7 +159,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/jsd_register_reg_btn"
+            android:id="@+id/jsd_signin_reg_btn"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:text="注册"
@@ -183,7 +184,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="40dp">
         <RelativeLayout

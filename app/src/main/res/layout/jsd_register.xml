@@ -5,12 +5,13 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="70dp">
         <ImageView
             android:id="@+id/jsd_register_return_btn"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_centerVertical="true"
             android:src="@mipmap/turn_left"/>
         <TextView
@@ -147,7 +148,7 @@
     </RelativeLayout>
     
     <RelativeLayout
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="170dp"
         android:layout_width="match_parent"
         android:layout_height="40dp">
         <RelativeLayout

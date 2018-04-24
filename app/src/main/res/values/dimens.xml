@@ -13,5 +13,7 @@
     <dimen name="page_margintop">25dp</dimen><!--状态栏高度-->
     <dimen name="home_flashview_height">180dp</dimen><!--发现页轮播图高度-->
     <dimen name="dynamic_icon_height">20dp</dimen><!--动态页小图标高度-->
+    <dimen name="welcome_font_size">30dp</dimen><!--欢迎界面字体大小-->
+
 
 </resources>

@@ -18,4 +18,5 @@
     <color name="colorWhite">#fefefe</color><!--白色-->
     <color name="white">#ffffff</color><!--纯白色-->
     <color name="lines">#eeedef</color><!--线条颜色-->
+    <color name="modena">#57505F</color><!--深紫色-->
 </resources>
