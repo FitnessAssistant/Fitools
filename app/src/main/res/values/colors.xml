@@ -19,4 +19,6 @@
     <color name="white">#ffffff</color><!--纯白色-->
     <color name="lines">#eeedef</color><!--线条颜色-->
     <color name="modena">#57505F</color><!--深紫色-->
+    <color name="yellow_addpeople">#FFC410</color><!--添加朋友按钮底色-->
+    <color name="yellow_top_num">#FFC622</color><!--跑步排行榜公里数字颜色-->
 </resources>
