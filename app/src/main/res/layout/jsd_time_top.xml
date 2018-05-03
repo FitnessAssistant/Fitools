@@ -35,7 +35,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageView
-                android:id="@+id/timetop_weekends_bottomline"
+                android:id="@+id/time_weekends_bottomline"
                 android:layout_width="25dp"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/shape_fit_topline"
@@ -56,7 +56,7 @@
             android:layout_weight="1">
             <ImageView
                 android:layout_marginBottom="2dp"
-                android:id="@+id/timetop_month_bottomline"
+                android:id="@+id/time_months_bottomline"
                 android:layout_width="25dp"
                 android:background="@drawable/shape_fit_topline"
                 android:layout_centerHorizontal="true"

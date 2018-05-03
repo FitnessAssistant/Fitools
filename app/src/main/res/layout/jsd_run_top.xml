@@ -30,12 +30,12 @@
         android:layout_width="match_parent"
         android:layout_height="60dp">
         <RelativeLayout
-            android:id="@+id/weekends_btn"
+            android:id="@+id/runtop_weekends_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageView
-                android:id="@+id/weekends_bottomline"
+                android:id="@+id/run_weekends_bottomline"
                 android:layout_width="25dp"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/shape_fit_topline"
@@ -50,14 +50,14 @@
                 android:textSize="20dp"/>
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/month_btn"
+            android:id="@+id/runtop_month_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageView
                 android:layout_marginBottom="2dp"
 
-                android:id="@+id/month_bottomline"
+                android:id="@+id/run_months_bottomline"
                 android:layout_width="25dp"
                 android:background="@drawable/shape_fit_topline"
                 android:layout_centerHorizontal="true"

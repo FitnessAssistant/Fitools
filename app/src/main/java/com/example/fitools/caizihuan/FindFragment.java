@@ -2,6 +2,7 @@ package com.example.fitools.caizihuan;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,10 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.fitools.jiangshengda.MainActivity;
+import com.example.fitools.jiangshengda.TrainTopActivity;
 import com.gc.flashview.FlashView;
 import com.example.fitools.R;
 import com.gc.flashview.constants.EffectConstants;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -20,6 +23,7 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class FindFragment extends Fragment {
+    private LinearLayout list;
     private View findlayout;
     private FlashView findfv;
     private ArrayList<String> imageUrls;
@@ -46,6 +50,13 @@ public class FindFragment extends Fragment {
             flashview();//轮播图
             initDatas();//加载数据
             initUI();
+            list.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getActivity(), TrainTopActivity.class);
+                    startActivity(i);
+                }
+            });
             /*refresh();//refresh页面刷新
             verticalScroll();//文字自动滚动
             timing();//计时器
@@ -64,6 +75,7 @@ public class FindFragment extends Fragment {
     * 获取界面控件
     * */
     private void getViews() {
+        list = (LinearLayout)findlayout.findViewById(R.id.list);
         findfv = (FlashView)findlayout.findViewById(R.id.find_banner_fv);
         mRecyclerView = (RecyclerView)findlayout.findViewById(R.id.find_recyclerView);
     }

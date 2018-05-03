@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fitools">
-    <uses-permission android:name="android.permission.INTERNET" />//联网
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    //联网
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,6 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".jiangshengda.SettingActivity" />
+        <activity android:name=".jiangshengda.RunningActivity" />
+        <activity android:name=".jiangshengda.LoginActivity" />
+        <activity android:name=".jiangshengda.SignupActivity" />
+        <activity android:name=".jiangshengda.RunTopActivity" />
+        <activity android:name=".jiangshengda.TrainTopActivity" />
+        <activity android:name=".jiangshengda.RunCountdownActivity" />
+        <activity android:name=".jiangshengda.ForgetPasswdActivity" />
+        <activity android:name=".jiangshengda.WelcomeOneActivity" />
+        <activity android:name=".jiangshengda.WelcomeTwoActivity" />
+        <activity android:name=".jiangshengda.WelcomeThreeActivity" />
+        <activity android:name=".jiangshengda.WelcomeFourActivity" />
+        <activity android:name=".jiangshengda.WelcomeFiveActivity" />
+        <activity android:name=".jiangshengda.TrainVideoActivity"></activity>
     </application>
 
 </manifest>

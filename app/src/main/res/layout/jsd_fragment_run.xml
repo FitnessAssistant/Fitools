@@ -143,28 +143,34 @@
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="100dp">
-                <ImageView
-                    android:id="@+id/run_startrun_img"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/shape"
-                    android:alpha="0.5"
-                    android:layout_width="300dp"
-                    android:layout_height="60dp" />
-                <TextView
-                    android:id="@+id/run_startrun_text"
+                <RelativeLayout
+                    android:id="@+id/start_run_rl"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="开始跑步"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"/>
-                <ImageView
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="50dp"
-                    android:layout_toRightOf="@+id/run_startrun_text"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@mipmap/run_run"/>
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/run_startrun_img"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/shape"
+                        android:alpha="0.5"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp" />
+                    <TextView
+                        android:id="@+id/run_startrun_text"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="开始跑步"
+                        android:textSize="20dp"
+                        android:textColor="@color/white"/>
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_toRightOf="@+id/run_startrun_text"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@mipmap/run_run"/>
+                </RelativeLayout>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_marginTop="20dp"

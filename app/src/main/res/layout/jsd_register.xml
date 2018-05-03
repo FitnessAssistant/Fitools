@@ -136,7 +136,7 @@
             android:layout_marginLeft="20dp"
             android:textColor="@color/black_icon"/>
         <TextView
-            android:id="@+id/jsdregister_forgetpasswd"
+            android:id="@+id/jsd_register_forgetpasswd"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
