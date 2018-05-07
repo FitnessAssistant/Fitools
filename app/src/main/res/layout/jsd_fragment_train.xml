@@ -23,26 +23,58 @@
                 android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/shape_fit_options"
-                android:layout_height="35dp">
+                android:layout_height="30dp">
                 <TextView
                     android:textSize="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我的训练"
+                    android:textColor="@color/gray_word"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"/>
             </RelativeLayout>
             <com.example.fitools.jiangshengda.ListViewForScrollView
                 android:id="@+id/Lv"
+                android:divider="@drawable/jsd_register_bottom_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             </com.example.fitools.jiangshengda.ListViewForScrollView>
+            <LinearLayout
+                android:id="@+id/fit_recommend_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/fit_recommend_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="3"
+                    android:layout_marginBottom="1dp"
+                    android:background="@color/colorWhite">
+                    <TextView
+                        android:id="@+id/fit_recommend_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:text="推荐训练"
+                        android:textColor="@color/gray_word"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        />
+                </RelativeLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/fit_recommend_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="165dp"
+                    android:scrollbars="vertical">
 
-
-
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
             <RelativeLayout
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:background="@mipmap/showmore">
