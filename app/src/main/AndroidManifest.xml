@@ -52,7 +52,10 @@
         <activity android:name=".jiangshengda.WelcomeThreeActivity" />
         <activity android:name=".jiangshengda.WelcomeFourActivity" />
         <activity android:name=".jiangshengda.WelcomeFiveActivity" />
-        <activity android:name=".jiangshengda.TrainVideoActivity" />
+        <activity
+            android:name=".jiangshengda.TrainVideoActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".jiangshengda.MapActivity"></activity>
     </application>
 

@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".jiangshengda.TrainVideoActivity">
+    android:layout_height="match_parent">
 
-    <WebView
+    <RelativeLayout
+        android:id="@+id/voide_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="480px"
+        android:gravity="center"
+        android:background="@android:color/black"
+        android:orientation="vertical">
 
-    </WebView>
-</android.support.constraint.ConstraintLayout>
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

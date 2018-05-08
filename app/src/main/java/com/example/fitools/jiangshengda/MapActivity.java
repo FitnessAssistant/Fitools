@@ -25,14 +25,12 @@ import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.services.core.LatLonPoint;
 
+
 public class MapActivity extends Activity implements LocationSource, AMapLocationListener {
-    //生命周期管理
-    static public boolean fog_draw_pause_judge = true;
-    private LatLonPoint lp = new LatLonPoint(39.993743, 116.472995);// 116.472995,39.993743
-    private LatLng pos;
+
     private String meg=null;
     private Bundle bundle;
-
+    private LatLng pos;
     private int i = 0;
     private MyView myView;
     private double x;
@@ -40,7 +38,10 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
     private float dot_x = 0;
     private float dot_y = 0;
     private FrameLayout act_main;
+    private LatLonPoint lp = new LatLonPoint(39.993743, 116.472995);// 116.472995,39.993743
+    static public boolean fog_draw_pause_judge = true;
     private Button btn;
+    private Button stop_btn;
     private AMap aMap;
     private MapView mapView;
     private OnLocationChangedListener mListener;
@@ -48,12 +49,13 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
     private AMapLocationClientOption mLocationOption;
     private TextView mLocationErrText;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         btn = (Button) findViewById(R.id.Fog_btn);
+        stop_btn = (Button) findViewById(R.id.Stop_Fog_btn);
+        stop_btn.setVisibility(View.GONE);
         JudgeJump();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +65,17 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
                 myView = new MyView(MapActivity.this);
                 act_main.addView(myView);
                 i = 0;//初始化计数器
-                //aMap.getUiSettings().setAllGesturesEnabled(false);//禁止所有手势操作
+                aMap.getUiSettings().setAllGesturesEnabled(false);//禁止所有手势操作
+                btn.setVisibility(View.GONE);
+                stop_btn.setVisibility(View.VISIBLE);
+            }
+        });
+        stop_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                act_main.removeView(myView);
+                stop_btn.setVisibility(View.GONE);
+                btn.setVisibility(View.VISIBLE);
             }
         });
         //获取地图控件引用
@@ -74,8 +86,21 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
         //设置使用普通地图
         //aMap.setMapType(AMap.MAP_TYPE_NIGHT);//夜景地图模式
         //aMap.setMapType(AMap.MAP_TYPE_NORMAL);
-    }
 
+    }
+    public void JudgeJump(){
+//        intent=this.getIntent();
+//        bundle=intent.getExtras();
+//        meg=bundle.getString("meg");
+        Intent intent=getIntent();
+        meg = (String) intent.getStringExtra("judge");
+
+        if(meg.equals("NomoralMap")){
+            btn.setVisibility(View.INVISIBLE);
+        }else {
+            btn.setVisibility(View.VISIBLE);
+        }
+    }
     //初始化AMap对象
     private void init() {
         if (aMap == null) {
@@ -90,7 +115,6 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
     设置一些amap的属性
      */
     private void setUpMap() {
-        removeAMapLogo();
         aMap.getUiSettings().setRotateGesturesEnabled(false);//禁止地图旋转手势
         aMap.getUiSettings().setTiltGesturesEnabled(false);//禁止倾斜手势
         aMap.setLocationSource(this);// 设置定位监听
@@ -102,20 +126,6 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
         //aMap.setMyLocationType(AMap.LOCATION_TYPE_MAP_FOLLOW);//跟随模式
         aMap.setMyLocationType(AMap.LOCATION_TYPE_LOCATE); //定位模式
         //aMap.setMyLocationType(AMap.LOCATION_TYPE_MAP_ROTATE); // 设置定位的类型为根据地图面向方向旋转
-    }
-
-    public void JudgeJump(){
-//        intent=this.getIntent();
-//        bundle=intent.getExtras();
-//        meg=bundle.getString("meg");
-        Intent intent=getIntent();
-        meg = (String) intent.getStringExtra("judge");
-
-        if(meg.equals("NomoralMap")){
-            btn.setVisibility(View.INVISIBLE);
-        }else {
-            btn.setVisibility(View.VISIBLE);
-        }
     }
 
 
@@ -144,42 +154,64 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
         fog_draw_pause_judge = false;
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
     /*
     定位成功后回调函数
      */
     @Override
     public void onLocationChanged(final AMapLocation amapLocation) {
-
         mLocationErrText.setVisibility(View.GONE);
         mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
-
-        x = amapLocation.getLatitude();//获取纬度
-        y = amapLocation.getLongitude();//获取经度
+        x = amapLocation.getLatitude();
+        y = amapLocation.getLongitude();
 
         lp.setLatitude(x);
         lp.setLongitude(y);
+        //aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lp.getLatitude(), lp.getLongitude()), 14));
 
         if (amapLocation.getErrorCode() == 0) {
-            pos = new LatLng(x, y);
+
+            pos = new LatLng(x,y);
             Projection projection = aMap.getProjection();
-            //将地图的点，转换为屏幕上的点
+
             Point dot = projection.toScreenLocation(pos);
             dot_x = dot.x;
             dot_y = dot.y;
-            if (fog_draw_pause_judge) {
-                if (i == 0) {
-                    myView.start_pot(dot_x, dot_y);
-                } else {
+            if (fog_draw_pause_judge){
+                if (i == 0){
+                    myView.start_pot(dot_x,dot_y);
+                } else{
                     myView.line(dot_x, dot_y);
                 }
                 i++;
-                //Toast为调试用，检测后台Paint渲染坐标情况
                 Toast.makeText(MapActivity.this, "dot_x:" + dot_x + ", dot_y:" + dot_y, Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            String errText = "定位失败," + amapLocation.getErrorCode() + ": " + amapLocation.getErrorInfo();
+            Log.e("AmapErr", errText);
+            mLocationErrText.setVisibility(View.VISIBLE);
+            mLocationErrText.setText(errText);
+        }
+        /*
+        if (mListener != null && amapLocation != null) {
+            if (amapLocation != null && amapLocation.getErrorCode() == 0) {
+                mLocationErrText.setVisibility(View.GONE);
+                mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
+                x = amapLocation.getLatitude();//获取纬度
+                y = amapLocation.getLongitude();//获取经度
+                LatLng pos = new LatLng(x,y);
+                Projection projection = aMap.getProjection();
+                //将地图的点，转换为屏幕上的点 
+                Point dot = projection.toScreenLocation(pos);
+                dot_x = dot.x;
+                dot_y = dot.y;
+                if (i == 0){
+                    myView.start_pot(dot_x,dot_y);
+                } else{
+                    myView.line(dot_x, dot_y);
+                }
+                i++;
+                Toast.makeText(MapsActivity.this, "dot_x:" + dot_x + ", dot_y:" + dot_y, Toast.LENGTH_SHORT).show();
+
                 //amapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
                 //amapLocation.getLatitude();//获取纬度
                 //amapLocation.getLongitude();//获取经度
@@ -195,14 +227,39 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
                 //amapLocation.getAdCode();//地区编码
                 //amapLocation.getAoiName();//获取当前定位点的AOI信息
                 //amapLocation.getGpsStatus();//获取GPS的当前状态
+
+            } else {
+                String errText = "定位失败," + amapLocation.getErrorCode() + ": " + amapLocation.getErrorInfo();
+                Log.e("AmapErr", errText);
+                mLocationErrText.setVisibility(View.VISIBLE);
+                mLocationErrText.setText(errText);
             }
-        } else {
-            String errText = "定位失败," + amapLocation.getErrorCode() + ": " + amapLocation.getErrorInfo();
-            Log.e("AmapErr", errText);
-            mLocationErrText.setVisibility(View.VISIBLE);
-            mLocationErrText.setText(errText);
-        }
+        }*/
     }
+
+    /*private void adjustCamera(LatLng centerLatLng,int range){
+        //当前缩放级别下的比例尺 
+        //"每像素代表" + scale + "米"
+        float scale = aMap.getScalePerPixel();
+        //代表range（米）的像素数量 
+        int pixel = Math.round(range/scale);
+        //小范围，小缩放级别（比例尺较大），有精度损失 
+        Projection projection = aMap.getProjection();
+        //将地图的中心点，转换为屏幕上的点 
+        Point center = projection.toScreenLocation(centerLatLng);
+        //获取距离中心点为pixel像素的左、右两点（屏幕上的点 
+        Point right = new Point(center.x+pixel,center.y);
+        Point left = new Point(center.x-pixel,center.y);
+
+        //将屏幕上的点转换为地图上的点 
+        LatLng rightLatlng=projection.fromScreenLocation(right);
+        LatLng LeftLatlng = projection.fromScreenLocation(left);
+
+        LatLngBounds bounds = LatLngBounds.builder().include(rightLatlng).include(LeftLatlng).build();
+        //bounds.contains();
+
+        aMap.getMapScreenMarkers();
+    }*/
 
     /*
     激活定位
@@ -226,11 +283,6 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
             mlocationClient.startLocation();
         }
     }
-    private void removeAMapLogo() {
-
-        UiSettings uiSettings =  aMap.getUiSettings();
-        uiSettings.setLogoBottomMargin(-50);
-    }
 
     /*
     停止定位
@@ -251,7 +303,4 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
         //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，实现地图生命周期管理
         mapView.onSaveInstanceState(outState);
     }
-
-
-
 }
