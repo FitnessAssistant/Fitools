@@ -8,8 +8,8 @@
         android:layout_height="70dp">
         <ImageView
             android:id="@+id/jsd_signup_return_btn"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_centerVertical="true"
@@ -25,13 +25,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="30dp">
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:background="@drawable/jsd_register_bottom_line">
                 <RelativeLayout
                     android:layout_height="50dp"
@@ -41,7 +41,8 @@
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:text="账号"
-                        android:layout_centerInParent="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
                         android:textSize="18dp"
                         android:textColor="@color/black_icon"/>
                 </RelativeLayout>
@@ -50,15 +51,17 @@
                     android:layout_height="50dp"
                     android:layout_weight="4">
                     <EditText
+                        android:id="@+id/signup_account_et"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:text="请输入手机号/邮箱"
+                        android:hint="请输入手机号/邮箱"
+                        android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+                        android:maxLines="1"
                         android:background="@null"
-                        android:textColor="@color/gray_word"/>
+                        android:textColor="@color/black_icon"/>
                 </RelativeLayout>
-
                 <RelativeLayout
                     android:layout_width="0dip"
                     android:layout_height="50dp"
@@ -66,9 +69,9 @@
                 </RelativeLayout>
             </TableRow>
             <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/jsd_register_bottom_line">
                 <RelativeLayout
                     android:layout_height="50dp"
@@ -78,7 +81,8 @@
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:text="验证码"
-                        android:layout_centerInParent="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
                         android:textSize="18dp"
                         android:textColor="@color/black_icon"/>
                 </RelativeLayout>
@@ -87,34 +91,54 @@
                     android:layout_height="50dp"
                     android:layout_weight="3">
                     <EditText
+                        android:id="@+id/signup_identify_et"
                         android:layout_marginLeft="15dp"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="请输入验证码"
+                        android:hint="请输入验证码"
+                        android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+                        android:maxLines="1"
                         android:background="@null"
-                        android:textColor="@color/gray_word"/>
+                        android:textColor="@color/black_icon"/>
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="0dip"
                     android:layout_height="50dp"
                     android:layout_weight="2">
-                    <Button
+                    <TextView
+                        android:id="@+id/signup_identifycode_bt"
                         android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
                         android:background="@drawable/jsd_shape_white"
                         android:layout_width="100dp"
                         android:text="获取验证码"
+                        android:textSize="14dp"
+                        android:gravity="center"
                         android:textColor="@color/gray_word"
                         android:layout_height="35dp" />
+                    <com.example.fitools.shenyue.CountdownTextView
+                        android:id="@+id/signup_identifytimer_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        android:layout_alignTop="@id/signup_identifycode_bt"
+                        android:layout_alignLeft="@id/signup_identifycode_bt"
+                        android:layout_alignBottom="@id/signup_identifycode_bt"
+                        android:layout_alignRight="@id/signup_identifycode_bt"
+                        android:gravity="center"
+                        android:textSize="14dp"
+                        android:textColor="@color/gray_word"
+                        android:background="@drawable/sy_signup_identifytv_bg"/>
                 </RelativeLayout>
             </TableRow>
             <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/jsd_register_bottom_line"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="15dp">
                 <RelativeLayout
                     android:layout_height="50dp"
                     android:layout_width="0dip"
@@ -123,7 +147,8 @@
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:text="密码"
-                        android:layout_centerInParent="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
                         android:textSize="18dp"
                         android:textColor="@color/black_icon"/>
                 </RelativeLayout>
@@ -132,34 +157,41 @@
                     android:layout_height="50dp"
                     android:layout_weight="4">
                     <EditText
+                        android:id="@+id/signup_passward_et"
                         android:layout_marginLeft="15dp"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="请输入密码（至少6位）"
+                        android:hint="请输入密码（至少6位）"
+                        android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+                        android:maxLines="1"
                         android:background="@null"
-                        android:textColor="@color/gray_word"/>
+                        android:inputType="textPassword"
+                        android:textColor="@color/black_icon"/>
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="0dip"
                     android:layout_height="50dp"
                     android:layout_weight="1">
-                    <ImageView
+                    <CheckBox
+                        android:id="@+id/signup_passward_cb"
+                        android:checked="false"
                         android:layout_centerInParent="true"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@mipmap/passwd_visible"/>
+                        android:layout_width="23dp"
+                        android:layout_height="15dp"
+                        android:button="@null"
+                        android:background="@drawable/sy_passwordeye_bg"/>
                 </RelativeLayout>
             </TableRow>
         </TableLayout>
     </RelativeLayout>
     <RelativeLayout
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/jsd_signup_reg_btn"
+            android:id="@+id/signup_sign_btn"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:text="注册"
@@ -182,49 +214,57 @@
             android:layout_centerInParent="true"
             android:textColor="@color/gray_word"/>
     </RelativeLayout>
-
     <RelativeLayout
-        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="match_parent">
+        <TableLayout
+            android:id="@+id/signup_three_tl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true">
+            <TableRow>
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="70dp"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/signup_qq"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="70dp"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/signup_weixin"/>
+                </RelativeLayout>
+            </TableRow>
+        </TableLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="21dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/jsd_register_bottom_line"></RelativeLayout>
-        <TextView
-            android:textSize="16dp"
-            android:background="@color/white"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  其他方式登录  "/>
+            android:layout_above="@id/signup_three_tl"
+            android:layout_height="40dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/jsd_register_bottom_line"></RelativeLayout>
+            <TextView
+                android:textSize="16dp"
+                android:background="@color/white"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  其他方式登录  "/>
+        </RelativeLayout>
     </RelativeLayout>
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TableRow>
-            <RelativeLayout
-                android:layout_width="0dip"
-                android:layout_height="70dp"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_centerInParent="true"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@mipmap/qq_logo"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="0dip"
-                android:layout_height="70dp"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_centerInParent="true"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@mipmap/wechat_logo"/>
-            </RelativeLayout>
-        </TableRow>
-    </TableLayout>
 </LinearLayout>
