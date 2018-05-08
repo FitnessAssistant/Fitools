@@ -1,6 +1,7 @@
 package com.example.fitools.jiangshengda;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.example.fitools.R;
 import com.example.fitools.shenyue.FitRecommendAdapter;
@@ -25,6 +27,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class TrainFragment extends Fragment {
+    private TextView static_mytarin_text;
     //ListView
     private ArrayList<Options> ls = new ArrayList<Options>();
     private ListViewForScrollView lv;
@@ -58,6 +61,14 @@ public class TrainFragment extends Fragment {
         flashview();//轮播图
         recommendrv = (RecyclerView)trainlayout.findViewById(R.id.fit_recommend_rv);
         recommendRecyclerview();
+        static_mytarin_text = (TextView) trainlayout.findViewById(R.id.static_mytrain_text);
+        static_mytarin_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),TrainVideoActivity.class);
+                startActivity(i);
+            }
+        });
         return trainlayout;
     }
 //    /**
