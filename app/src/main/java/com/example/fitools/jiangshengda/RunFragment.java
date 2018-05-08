@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RunFragment extends Fragment {
+    private String meg="NomoralMap";
+    private ImageView map_btn;
     private LinearLayout run_xml;
     private View view_run,view_calorie,view_distance,view_time;
     private ViewPager viewPager;
@@ -32,6 +35,8 @@ public class RunFragment extends Fragment {
         View v = inflater.inflate(R.layout.jsd_fragment_run,null);
         run_xml = (LinearLayout) v.findViewById(R.id.run_xml);
         viewPager = (ViewPager) v.findViewById(R.id.run_viewpager);
+        map_btn = (ImageView) v.findViewById(R.id.run_map_btn);
+        start_run_rl = (RelativeLayout) v.findViewById(R.id.start_run_rl);
         //view_run = inflater.inflate(R.layout.jsd_viewpager_run,null);
 //        view_calorie = inflater.inflate(R.layout.jsd_viewpager_calorie,null);
 //        view_distance = inflater.inflate(R.layout.jsd_viewpager_distance,null);
@@ -95,7 +100,18 @@ public class RunFragment extends Fragment {
 
             }
         });
-        start_run_rl = (RelativeLayout) v.findViewById(R.id.start_run_rl);
+        map_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //利用bundle来存取数据
+                Bundle bundle=new Bundle();
+                bundle.putString("judge",meg);
+                //再把bundle中的数据传给intent，以传输过去
+                Intent j = new Intent(getActivity(),MapActivity.class);
+                j.putExtras(bundle);
+                startActivity(j);
+            }
+        });
         start_run_rl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
