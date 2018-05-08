@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText identifyet;
     private Button signupbt;
     private CheckBox passwordcb;
-    private TextView identifycodebt;
+    private TextView identifycodetv;
     private CountdownTextView timetv;
     int utilbt = 0;
     @Override
@@ -47,18 +47,18 @@ public class SignupActivity extends AppCompatActivity {
     private void getViews(){
         back = (ImageView) findViewById(R.id.jsd_signup_return_btn);
         accountet = (EditText)findViewById(R.id.signup_account_et);
-        passwordet = (EditText)findViewById(R.id.signup_passward_et);
+        passwordet = (EditText)findViewById(R.id.signup_password_et);
         identifyet = (EditText)findViewById(R.id.signup_identify_et);
         signupbt = (Button)findViewById(R.id.signup_sign_btn);
-        passwordcb = (CheckBox)findViewById(R.id.signup_passward_cb);
-        identifycodebt = (TextView) findViewById(R.id.signup_identifycode_bt);
+        passwordcb = (CheckBox)findViewById(R.id.signup_password_cb);
+        identifycodetv = (TextView) findViewById(R.id.signup_identifycode_bt);
         timetv = (CountdownTextView)findViewById(R.id.signup_identifytimer_tv);
     }
     /**
      * 注册监听器
      */
     private void setListener(){
-        identifycodebt.setOnClickListener(new View.OnClickListener() {
+        identifycodetv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (timetv.getVisibility() == View.INVISIBLE){

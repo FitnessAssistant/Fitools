@@ -52,13 +52,16 @@
                     android:layout_height="50dp"
                     android:layout_weight="4">
                     <EditText
+                        android:id="@+id/forgetpasswd_account_et"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:text="请输入手机号/邮箱"
+                        android:hint="请输入手机号/邮箱"
+                        android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+                        android:maxLines="1"
                         android:background="@null"
-                        android:textColor="@color/gray_word"/>
+                        android:textColor="@color/black_icon"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -70,7 +73,7 @@
             <TableRow
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/jsd_register_bottom_line">
                 <RelativeLayout
                     android:layout_height="50dp"
@@ -90,26 +93,46 @@
                     android:layout_height="50dp"
                     android:layout_weight="3">
                     <EditText
+                        android:id="@+id/forgetpasswd_identify_et"
                         android:layout_marginLeft="15dp"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="请输入验证码"
+                        android:hint="请输入验证码"
+                        android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+                        android:maxLines="1"
                         android:background="@null"
-                        android:textColor="@color/gray_word"/>
+                        android:textColor="@color/black_icon"/>
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="0dip"
                     android:layout_height="50dp"
                     android:layout_weight="2">
-                    <Button
+                    <TextView
+                        android:id="@+id/forgetpasswd_identifycode_bt"
                         android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
                         android:background="@drawable/jsd_shape_white"
                         android:layout_width="100dp"
                         android:text="获取验证码"
+                        android:textSize="14dp"
+                        android:gravity="center"
                         android:textColor="@color/gray_word"
                         android:layout_height="35dp" />
+                    <com.example.fitools.shenyue.CountdownTextView
+                        android:id="@+id/forgetpasswd_identifytimer_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        android:layout_alignTop="@id/forgetpasswd_identifycode_bt"
+                        android:layout_alignLeft="@id/forgetpasswd_identifycode_bt"
+                        android:layout_alignBottom="@id/forgetpasswd_identifycode_bt"
+                        android:layout_alignRight="@id/forgetpasswd_identifycode_bt"
+                        android:gravity="center"
+                        android:textSize="14dp"
+                        android:textColor="@color/gray_word"
+                        android:background="@drawable/sy_signup_identifytv_bg"/>
                 </RelativeLayout>
             </TableRow>
             <TableRow
@@ -117,7 +140,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/jsd_register_bottom_line"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="15dp">
                 <RelativeLayout
                     android:layout_height="50dp"
                     android:layout_width="0dip"
@@ -136,13 +159,17 @@
                     android:layout_height="50dp"
                     android:layout_weight="4">
                     <EditText
+                        android:id="@+id/forgetpasswd_password_et"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_marginLeft="15dp"
                         android:layout_height="wrap_content"
-                        android:text="请输入密码（至少6位）"
+                        android:hint="请输入密码（至少6位）"
+                        android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+                        android:maxLines="1"
                         android:background="@null"
-                        android:textColor="@color/gray_word"/>
+                        android:inputType="textPassword"
+                        android:textColor="@color/black_icon"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -150,7 +177,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1">
                     <CheckBox
-                        android:id="@+id/signup_passward_cb"
+                        android:id="@+id/forgetpasswd_password_cb"
                         android:checked="false"
                         android:layout_centerInParent="true"
                         android:layout_width="23dp"
@@ -166,7 +193,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/jsd_register_reg_btn"
+            android:id="@+id/forgetpasswd_ok_bt"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:text="确定"

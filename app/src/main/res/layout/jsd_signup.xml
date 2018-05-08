@@ -157,7 +157,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="4">
                     <EditText
-                        android:id="@+id/signup_passward_et"
+                        android:id="@+id/signup_password_et"
                         android:layout_marginLeft="15dp"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
@@ -175,7 +175,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1">
                     <CheckBox
-                        android:id="@+id/signup_passward_cb"
+                        android:id="@+id/signup_password_cb"
                         android:checked="false"
                         android:layout_centerInParent="true"
                         android:layout_width="23dp"
