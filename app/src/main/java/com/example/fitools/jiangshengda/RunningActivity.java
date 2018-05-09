@@ -19,6 +19,8 @@ public class RunningActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent k = new Intent(RunningActivity.this,MusicServer.class);
+        startService(k);
         setContentView(R.layout.activity_running);
         pause_btn = (RelativeLayout) findViewById(R.id.button2);
         contuine_btn = (Button) findViewById(R.id.button3);
@@ -37,6 +39,14 @@ public class RunningActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+    }
+
+    @Override
+    protected void onStop(){
+        Intent intent = new Intent(RunningActivity.this,MusicServer.class);
+        stopService(intent);
+        super.onStop();
 
     }
 

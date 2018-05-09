@@ -56,6 +56,11 @@
         <activity android:name=".jiangshengda.WelcomeThreeActivity" />
         <activity android:name=".jiangshengda.WelcomeFourActivity" />
         <activity android:name=".jiangshengda.WelcomeFiveActivity" />
+        <service
+            android:name=".jiangshengda.MusicServer"
+            android:exported="true"
+            android:process=":remote">
+        </service>
         <activity
             android:name=".jiangshengda.TrainVideoActivity"
             android:configChanges="orientation|screenSize"
