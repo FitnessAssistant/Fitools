@@ -2,6 +2,7 @@ package com.example.fitools.jiangshengda;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
