@@ -9,6 +9,7 @@
     <color name="gray_word">#9A9A9A</color><!--灰色（字）-->
     <color name="black_icon">#2c2c2c</color><!--黑（图标）-->
     <color name="sblack">#564F5F</color><!--浅黑-->
+    <color name="xblack">#45404D</color><!--深浅黑-->
     <color name="ssblack">#696669</color><!--浅浅黑-->
     <color name="orange">#f7921c</color><!--橙色-->
     <color name="yellow_major">#ffc50a</color><!--艳黄（主颜色）-->
