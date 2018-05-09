@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Leff"
+                android:text="Left"
                 android:textColor="@color/black_icon"
                 android:textSize="@dimen/bmidtext_size"
                 android:gravity="bottom"
@@ -43,19 +43,31 @@
                 android:textSize="@dimen/msmalltext_size"
                 android:paddingTop="1dp"/>
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="加关注"
-            android:textColor="@color/orange"
-            android:textSize="@dimen/bmidtext_size"/>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加关注"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/sy_shape_dynamic"
+                android:textColor="@color/yellow_icon"
+                android:paddingLeft="10dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:textSize="14dp"/>
+        </RelativeLayout>
 
     </LinearLayout>
     <ImageView
         android:id="@+id/iv_content"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:src="@mipmap/find_item1"
+        android:src="@mipmap/find_img1"
         android:scaleType="fitXY"/>
     <TextView
         android:id="@+id/tv_content"

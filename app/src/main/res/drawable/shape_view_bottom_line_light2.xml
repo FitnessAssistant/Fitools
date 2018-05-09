@@ -3,7 +3,7 @@
     <item>
         <shape>
             <!--    边框颜色 -->
-            <solid android:color="@color/sgray_icon"/>
+            <solid android:color="@color/bgdgray"/>
         </shape>
     </item>
     <!-- 给View的上 左  右设置8dp的边框 -->
