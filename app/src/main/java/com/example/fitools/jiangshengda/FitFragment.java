@@ -46,7 +46,7 @@ public class FitFragment extends Fragment {
     private RelativeLayout run_btn;
     private ImageView train_line;
     private ImageView run_line;
-
+    private View fitlayout;
 
     /**
      * 初始化Fragment
@@ -120,29 +120,36 @@ public class FitFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View fitlayout = inflater.inflate(R.layout.jsd_fragment_fit, null);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        if(null == fitlayout) {//防止Layout重复加载数据
+            fitlayout = inflater.inflate(R.layout.jsd_fragment_fit, null);
 
-        fitll = (LinearLayout) fitlayout.findViewById(R.id.fit_ll);
-        exercise_btn = (RelativeLayout) fitlayout.findViewById(R.id.exercise_btn);
-        run_btn = (RelativeLayout) fitlayout.findViewById(R.id.run_btn);
-        train_line = (ImageView) fitlayout.findViewById(R.id.exercise_bottomline);
-        run_line = (ImageView) fitlayout.findViewById(R.id.run_bottomline);
+            fitll = (LinearLayout) fitlayout.findViewById(R.id.fit_ll);
+            exercise_btn = (RelativeLayout) fitlayout.findViewById(R.id.exercise_btn);
+            run_btn = (RelativeLayout) fitlayout.findViewById(R.id.run_btn);
+            train_line = (ImageView) fitlayout.findViewById(R.id.exercise_bottomline);
+            run_line = (ImageView) fitlayout.findViewById(R.id.run_bottomline);
 
-        initFragments();
-        setListener();
-        setTrainPage();
-        // 给各页面设置flag
-        client = new GoogleApiClient.Builder(getActivity()).addApi(AppIndex.API).build();
-        switch (utils.flag){
-            case 1://显示锻炼页面
-                setTrainPage();
-                break;
-            case 2://显示跑步页面
-                setRunPage();
-                break;
+            initFragments();
+            setListener();
+            setTrainPage();
+            // 给各页面设置flag
+            client = new GoogleApiClient.Builder(getActivity()).addApi(AppIndex.API).build();
+            switch (utils.flag){
+                case 1://显示锻炼页面
+                    setTrainPage();
+                    break;
+                case 2://显示跑步页面
+                    setRunPage();
+                    break;
+            }
+        }else {
+            ViewGroup parent = (ViewGroup)fitlayout.getParent();
+            if(null != parent){
+                parent.removeView(fitlayout);
+            }
         }
+
         return fitlayout;
     }
 

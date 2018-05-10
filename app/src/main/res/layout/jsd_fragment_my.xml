@@ -8,7 +8,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:id="@+id/User_information_bar"
-        android:background="@mipmap/my_topbgd"
+        android:background="@mipmap/my_bg"
         android:layout_width="match_parent"
         android:layout_height="300dp">
         <RelativeLayout
@@ -117,92 +117,115 @@
                 android:text="粉丝"/>
             <ImageView
                 android:id="@+id/my_setting"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
                 android:src="@mipmap/setting"/>
         </RelativeLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:alpha="0.5"
-            android:background="@color/white"
-            android:id="@+id/my_navigation_bottom"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <RelativeLayout
-                android:background="@drawable/shape_my_navigation"
-                android:layout_weight="1"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.6"
+                android:background="@color/white"></RelativeLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/my_navigation_bottom"
+
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_weight="1"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-            </RelativeLayout>
-        </LinearLayout>
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/sblack"
+                        android:layout_alignParentRight="true"
+                        ></TextView>
+                    <TextView
+                        android:id="@+id/my_sportime_static"
+                        android:text="总运动时长"
+                        android:textSize="16dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/my_sportime_static2"
+                        android:text="分钟"
+                        android:textSize="16dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="45dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/my_sportime"
+                        android:textSize="40dp"
+                        android:textStyle="bold"
+                        android:text="@string/my_sportime"
+                        android:layout_toLeftOf="@+id/my_sportime_static2"
+                        android:layout_alignBottom="@id/my_sportime_static2"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/my_ranking_static"
+                        android:text="本周好友排名"
+                        android:textSize="16dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/my_ranking_static2"
+                        android:text="名"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="45dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_width="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/my_ranking"
+                        android:text="@string/my_ranking"
+                        android:textSize="40dp"
+                        android:textStyle="bold"
+                        android:layout_toLeftOf="@+id/my_ranking_static2"
+                        android:layout_alignBottom="@id/my_ranking_static2"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
-    <TextView
-        android:id="@+id/my_sportime_static"
-        android:text="总运动时长"
-        android:textSize="16dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginLeft="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/my_ranking_static"
-        android:text="本周好友排名"
-        android:textSize="16dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginLeft="215dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/my_sportime"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:text="@string/my_sportime"
-        android:layout_marginTop="220dp"
-        android:layout_marginLeft="75dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/my_sportime_static2"
-        android:text="分钟"
-        android:textSize="16dp"
-        android:layout_marginTop="245dp"
-        android:layout_marginLeft="110dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/my_ranking"
-        android:text="@string/my_ranking"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_marginTop="220dp"
-        android:layout_marginLeft="255dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/my_ranking_static2"
-        android:text="名"
-        android:layout_marginTop="245dp"
-        android:layout_marginLeft="315dp"
-        android:layout_width="wrap_content"
-        android:textSize="16dp"
-        android:layout_height="wrap_content" />
+
     <TableLayout
         android:layout_below="@+id/User_information_bar"
         android:layout_width="match_parent"
         android:layout_marginTop="30dp"
         android:background="@mipmap/my_lines"
-        android:layout_height="300dp">
+        android:layout_height="280dp">
         <TableRow
             android:layout_weight="1">
             <RelativeLayout
@@ -211,9 +234,11 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/my_news_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:alpha="0.8"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_centerInParent="true"
+
                     android:src="@mipmap/my_news"/>
                 <TextView
                     android:id="@+id/my_news_text"
@@ -229,8 +254,9 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/my_statistics_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:alpha="0.8"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/my_statistics"/>
                 <TextView
@@ -247,8 +273,9 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/my_plan_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:alpha="0.8"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/my_plan"/>
                 <TextView
@@ -268,8 +295,9 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/my_feets_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:alpha="0.8"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/my_feets"/>
                 <TextView
@@ -286,8 +314,9 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/my_weight_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:alpha="0.8"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/my_weight"/>
                 <TextView
@@ -304,8 +333,9 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/my_diet_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:alpha="0.8"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/my_diet"/>
                 <TextView

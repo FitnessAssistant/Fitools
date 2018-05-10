@@ -13,27 +13,47 @@
         android:orientation="horizontal"
         android:background="@color/colorWhite"
         android:paddingTop="5dp"
-        android:paddingRight="15dp"
-        android:paddingLeft="45dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:layout_marginTop="@dimen/page_margintop">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_addfriends"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/icon_addfriends"
+                android:layout_marginTop="6dp"/>
+        </RelativeLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/dynamic_rv_title"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="8"
             android:layout_height="40dp"
             android:scrollbars="vertical"
             android:background="@color/colorWhite">
         </android.support.v7.widget.RecyclerView>
-        <ImageView
-            android:id="@+id/iv_addfriends"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:src="@mipmap/icon_addfriends"
-            android:layout_marginTop="6dp"/>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_camera"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/camera"
+                android:layout_marginTop="6dp"/>
+        </RelativeLayout>
     </LinearLayout>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:background="@color/gray_bottom_border"/>
     <ScrollView
         android:layout_width="match_parent"
