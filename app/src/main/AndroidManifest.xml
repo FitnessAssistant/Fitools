@@ -54,8 +54,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".jiangshengda.WelcomeThreeActivity" />
-        <activity android:name=".jiangshengda.WelcomeFourActivity" />
+        <activity android:name=".jiangshengda.WelcomeThreeActivity" >
+
+        </activity>
+        <activity android:name=".jiangshengda.WelcomeFourActivity" >
+
+        </activity>
         <activity android:name=".jiangshengda.WelcomeFiveActivity" />
         <service
             android:name=".jiangshengda.MusicServer"

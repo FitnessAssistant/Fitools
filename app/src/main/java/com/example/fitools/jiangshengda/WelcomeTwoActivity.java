@@ -45,9 +45,11 @@ public class WelcomeTwoActivity extends AppCompatActivity {
                 if (isChecked){
                     mancb.setTextColor(getResources().getColor(R.color.white));
                     womencb.setChecked(false);
+                    womencb.setTextColor(getResources().getColor(R.color.gray_word));
                 }else {
-                    mancb.setTextColor(getResources().getColor(R.color.gray_word));
-                    womencb.setChecked(true);
+                    if (!womencb.isChecked()){
+                        mancb.setChecked(true);
+                    }
                 }
             }
         });
@@ -57,9 +59,11 @@ public class WelcomeTwoActivity extends AppCompatActivity {
                 if (isChecked){
                     womencb.setTextColor(getResources().getColor(R.color.white));
                     mancb.setChecked(false);
+                    mancb.setTextColor(getResources().getColor(R.color.gray_word));
                 }else {
-                    womencb.setTextColor(getResources().getColor(R.color.gray_word));
-                    mancb.setChecked(true);
+                    if (!mancb.isChecked()){
+                        womencb.setChecked(true);
+                    }
                 }
             }
         });
