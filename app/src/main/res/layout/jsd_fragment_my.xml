@@ -8,7 +8,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:id="@+id/User_information_bar"
-        android:background="@mipmap/my_bg"
+        android:background="@mipmap/my_bg_women"
         android:layout_width="match_parent"
         android:layout_height="300dp">
         <RelativeLayout
@@ -25,7 +25,7 @@
                 android:src="@mipmap/mitao"
                 />
             <TextView
-                android:id="@+id/my_username"
+                android:id="@+id/my_nicknametv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
