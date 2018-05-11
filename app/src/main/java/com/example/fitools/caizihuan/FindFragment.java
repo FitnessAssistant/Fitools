@@ -99,8 +99,8 @@ public class FindFragment extends Fragment {
      */
     public void flashview(){
         imageUrls = new ArrayList<String>();
-        imageUrls.add("https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=%E9%A3%8E%E6%99%AF&step_word=&hs=0&pn=29&spn=0&di=20161291720&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=2&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=-1&cs=1878067600%2C3935137756&os=369595147%2C3358620400&simid=0%2C0&adpicid=0&lpn=0&ln=1981&fr=&fmq=1520945376538_R&fm=&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&ist=&jit=&cg=&bdtype=13&oriquery=&objurl=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F9922720e0cf3d7ca7533225ef91fbe096a63a9d4.jpg&fromurl=ippr_z2C%24qAzdH3FAzdH3Frwtxtg_z%26e3Bv54AzdH3Fri5p5v5ry6t2ipAzdH3F8n00nmba9&gsm=0&rpstart=0&rpnum=0");
-        imageUrls.add("http://www.315ph.com/mobile/data/afficheimg/1499993512075070666.jpg");
+        imageUrls.add("http://seopic.699pic.com/photo/00012/1518.jpg_wh1200.jpg");
+        imageUrls.add("http://seopic.699pic.com/photo/00000/5551.jpg_wh1200.jpg");
         findfv.setImageUris(imageUrls);
         findfv.setEffect(EffectConstants.DEFAULT_EFFECT);
     }

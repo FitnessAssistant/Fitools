@@ -4,11 +4,11 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="60dp">
         <ImageView
             android:id="@+id/jsd_height_return_btn"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_centerVertical="true"
@@ -59,17 +59,21 @@
             android:layout_height="wrap_content" />
     </RelativeLayout>
     <RelativeLayout
-        android:id="@+id/jsd_height_next_btn"
-        android:layout_marginTop="160dp"
-        android:background="#57505F"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <TextView
-            android:layout_centerInParent="true"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="下一步"
-            android:textColor="@color/white"/>
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/jsd_sex_date_next_btn"
+            android:layout_alignParentBottom="true"
+            android:background="#57505F"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_centerInParent="true"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="下一步"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

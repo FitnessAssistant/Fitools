@@ -41,9 +41,9 @@
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="自由跑"
+                android:text="650"
                 android:textColor="@color/white"
-                android:textSize="50dp"/>
+                android:textSize="60dp"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"

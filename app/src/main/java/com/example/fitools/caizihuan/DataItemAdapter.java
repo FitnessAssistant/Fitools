@@ -73,14 +73,14 @@ public class DataItemAdapter extends RecyclerView.Adapter implements View.OnClic
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ViewHolder1){
 
-            ((ViewHolder1)holder).img.setImageResource(hci.get(position).getImgsrc());
+            ((ViewHolder1)holder).img.setImageBitmap(readBitMap(context,hci.get(position).getImgsrc()));
             ((ViewHolder1)holder).titletv.setText(hci.get(position).getTitle());
             ((ViewHolder1)holder).contenttv.setText(hci.get(position).getContent());
             //将position保存在itemView的Tag中，以便点击时进行获取
             ((ViewHolder1)holder).itemView.setTag(position);
 
         }else if (holder instanceof ViewHolder2){
-            ((ViewHolder2)holder).img.setImageResource(hci.get(position).getImgsrc());
+            ((ViewHolder2)holder).img.setImageBitmap(readBitMap(context,hci.get(position).getImgsrc()));
             ((ViewHolder2)holder).titletv.setText(hci.get(position).getTitle());
             ((ViewHolder2)holder).contenttv.setText(hci.get(position).getContent());
             //将position保存在itemView的Tag中，以便点击时进行获取

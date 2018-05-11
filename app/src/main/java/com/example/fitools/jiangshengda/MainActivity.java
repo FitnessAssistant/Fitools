@@ -2,6 +2,8 @@ package com.example.fitools.jiangshengda;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
@@ -25,6 +27,7 @@ import com.example.fitools.R;
 public class MainActivity extends AppCompatActivity {
 
     private GoogleApiClient client;
+    public static final String USERID = "LoginActivity.USERID";
     private MyFragment mMy;
     private FindFragment mFind;
     private FitFragment mFit;
@@ -164,6 +167,12 @@ public class MainActivity extends AppCompatActivity {
         dynamicRl.setOnClickListener(new MyListener());
         findRl.setOnClickListener(new MyListener());
         myRl.setOnClickListener(new MyListener());
+    }
+    public static void actionStartActivity(Context packageContext, String id){
+        Intent i = new Intent(packageContext, MainActivity.class);
+        i.putExtra(USERID, id);
+        packageContext.startActivity(i);
+
     }
     /**
      * 定义底栏点击事件

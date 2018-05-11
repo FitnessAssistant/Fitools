@@ -3,6 +3,8 @@ package com.example.fitools.jiangshengda;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,8 +22,20 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import org.apache.http.Header;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.loopj.android.http.AsyncHttpClient;
 import com.example.fitools.R;
+import com.example.fitools.shenyue.AppUtil;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 
 public class LoginActivity extends AppCompatActivity {
     private TextView newuser;
@@ -31,7 +45,25 @@ public class LoginActivity extends AppCompatActivity {
     private EditText accountet;
     private Button regbt;
     private CheckBox passwordcb;
+    public  static String USER="ABC";
     int utilbt = 0;
+    private AsyncHttpResponseHandler mHandler = new AsyncHttpResponseHandler(){
+        @Override
+        public void onSuccess(int i, Header[] headers, byte[] bytes) {
+            try {
+                String str1 = new String(bytes,"UTF-8");
+                USER = str1;
+//                Toast.makeText(getApplicationContext(),str1,Toast.LENGTH_SHORT).show();
+                MainActivity.actionStartActivity(LoginActivity.this, str1);
+            }catch (UnsupportedEncodingException e){
+                e.printStackTrace();
+            }
+        }
+        @Override
+        public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,12 +178,28 @@ public class LoginActivity extends AppCompatActivity {
 
                     }else {
                         regbt.setBackgroundColor(ContextCompat.getColor(LoginActivity.this, R.color.sblack));
+                        Thread thread = new Thread(){
+                          @Override
+                          public void run(){
+                              super.run();
+                              synhttprequestlogin();
+                          }
+                        };
+                        thread.start();
                     }
 
                 }
                 return false;
             }
         });
+    }
+    public void synhttprequestlogin(){
+        AsyncHttpClient client = new AsyncHttpClient();
+        String Url = "http://"+ AppUtil.JFinalServer.HOST+":"+AppUtil.JFinalServer.PORT+"/user/login";
+        RequestParams params = new RequestParams();
+        params.add("user_name", accountet.getText().toString());
+        params.add("user_pwd", passwordet.getText().toString());
+        client.get(Url, params, mHandler);
     }
     /**
      * 隐藏状态栏
