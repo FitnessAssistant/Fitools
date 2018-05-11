@@ -8,8 +8,10 @@ import android.os.IBinder;
 
 import com.example.fitools.R;
 
-public class MusicServer extends Service {
+import static com.example.fitools.jiangshengda.RunningActivity.con_music;
 
+public class MusicServer extends Service {
+    private String data = null;
     private MediaPlayer mediaPlayer;
 
     @Override
@@ -22,15 +24,28 @@ public class MusicServer extends Service {
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
 
-
         if (mediaPlayer == null) {
+            if (con_music == true){
+                // R.raw.mmp是资源文件，MP3格式的
+                mediaPlayer = MediaPlayer.create(this,R.raw.slow_music);
+                //设置循环
+                mediaPlayer.setLooping(true);
+                mediaPlayer.start();
+            }else {
+                mediaPlayer.stop();
+                mediaPlayer = MediaPlayer.create(this,R.raw.fast_music);
+                mediaPlayer.setLooping(true);
+                mediaPlayer.start();
+            }
 
-            // R.raw.mmp是资源文件，MP3格式的
-            mediaPlayer = MediaPlayer.create(this,R.raw.slow_music);
-            mediaPlayer.setLooping(true);
-            mediaPlayer.start();
 
         }
+    }
+
+    @Override
+    public int onStartCommand(final Intent intent, int flags, int startId){
+        data = intent.getStringExtra("avgspeed");
+        return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
