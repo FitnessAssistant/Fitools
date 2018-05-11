@@ -46,7 +46,11 @@
             android:value="cb5e2771f8b7483ce90b3c34ad21eaac" />
 
         <activity android:name=".jiangshengda.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -56,11 +60,6 @@
         <activity android:name=".jiangshengda.SettingActivity" />
         <activity android:name=".jiangshengda.RunningActivity" />
         <activity android:name=".jiangshengda.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".jiangshengda.SignupActivity" />
         <activity android:name=".jiangshengda.RunTopActivity" />

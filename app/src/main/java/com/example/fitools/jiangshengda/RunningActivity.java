@@ -89,6 +89,12 @@ public class RunningActivity extends Activity {
                 finish_btn.setVisibility(View.VISIBLE);
             }
         });
+        contuine_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         fog_of_war.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -238,8 +244,7 @@ public class RunningActivity extends Activity {
         // 地球半径
         double R = 6371;
         // 两点间距离 km，如果想要米的话，结果*1000就可以了
-        double d = Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1))
-                * R;
+        double d = Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1)) * R;
         return d * 1000;
     }
 
