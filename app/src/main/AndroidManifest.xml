@@ -35,12 +35,9 @@
         <activity android:name=".jiangshengda.MainActivity">
 
         </activity>
-        <activity android:name=".jiangshengda.SettingActivity" >
-
-        </activity>
+        <activity android:name=".jiangshengda.SettingActivity" />
         <activity android:name=".jiangshengda.RunningActivity" />
         <activity android:name=".jiangshengda.LoginActivity" >
-
         </activity>
         <activity android:name=".jiangshengda.SignupActivity" />
         <activity android:name=".jiangshengda.RunTopActivity" />

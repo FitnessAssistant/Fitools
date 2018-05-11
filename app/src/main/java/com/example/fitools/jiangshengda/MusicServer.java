@@ -3,6 +3,7 @@ package com.example.fitools.jiangshengda;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.os.IBinder;
 
 import com.example.fitools.R;
@@ -20,6 +21,7 @@ public class MusicServer extends Service {
     @Override
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
+
 
         if (mediaPlayer == null) {
 
