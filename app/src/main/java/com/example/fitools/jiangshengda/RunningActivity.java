@@ -5,11 +5,13 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,50 +29,74 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RunningActivity extends Activity {
+    private TextView per_text;
+    private String distance_str;
+    private TextView calorie_text;
+    private Chronometer timer;
+    public static Boolean con_music = true;
+    private int signal = 0;
     private static final String TAG = "LocationService";
     private RelativeLayout pause_btn;
     private Button contuine_btn;
     private Button finish_btn;
     private ImageView fog_of_war;
-    private String meg="FogMap";
-    private LatLng pos1= new LatLng(0.000000,0.000000),pos2;
-    private float distance;
-    private float avgspeed = (float) 0.000;
-    private float sum_distance;
+    private String meg = "FogMap";
+    private LatLng pos1 = new LatLng(0.000000, 0.000000);
+    private LatLng pos2;
+    //private float distance=0.00f;
+    private float avgspeed = 0.00f;
+    private float sum_distance = 0.00f;
     private double longitude;
     private double latitude;
     private TextView speed_text;
+    private int distance_int = 0;
     private int speed_int = 0;
+    private int i = 0;
+    private TextView distance_text;
+    //private float sum_distance_two=0.00f;
 
     //声明AMapLocationClient类对象
     AMapLocationClient mLocationClient = null;
     //声明AMapLocationClientOption对象
     public AMapLocationClientOption mLocationOption = null;
+    //private float distance_two=0.00f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent k = new Intent(RunningActivity.this,MusicServer.class);
-        startService(k);
-
         setContentView(R.layout.activity_running);
+        timer = (Chronometer) findViewById(R.id.timer);
         pause_btn = (RelativeLayout) findViewById(R.id.button2);
         contuine_btn = (Button) findViewById(R.id.button3);
         finish_btn = (Button) findViewById(R.id.button4);
         speed_text = (TextView) findViewById(R.id.textView7);
+        distance_text = (TextView) findViewById(R.id.textView11);
         fog_of_war = (ImageView) findViewById(R.id.fog_of_war_map);
+        calorie_text = (TextView) findViewById(R.id.textView2);
+        per_text = (TextView) findViewById(R.id.textView6);
+        //设置三个按钮的可见性
         init();
-        setGetDistance();
-        //这里应该放到回调函数里
-
+        //计时器开始计时
+        timer.setBase(SystemClock.elapsedRealtime());//计时器清零
+        int hour = (int) ((SystemClock.elapsedRealtime() - timer.getBase()) / 1000 / 60);
+        timer.setFormat("0" + String.valueOf(hour) + ":%s");
+        timer.start();
+        pause_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pause_btn.setVisibility(View.INVISIBLE);
+                contuine_btn.setVisibility(View.VISIBLE);
+                finish_btn.setVisibility(View.VISIBLE);
+            }
+        });
         fog_of_war.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //利用bundle来存取数据
-                Bundle bundle=new Bundle();
-                bundle.putString("judge",meg);
+                Bundle bundle = new Bundle();
+                bundle.putString("judge", meg);
                 //再把bundle中的数据传给intent，以传输过去
-                Intent i = new Intent(RunningActivity.this,MapActivity.class);
+                Intent i = new Intent(RunningActivity.this, MapActivity.class);
                 i.putExtras(bundle);
                 startActivity(i);
             }
@@ -89,30 +115,24 @@ public class RunningActivity extends Activity {
         //该方法默认为false。
 //        mLocationOption.setOnceLocation(true);
 //        mLocationOption.setOnceLocationLatest(true);
-    }
-
-    @Override
-    protected void onStart() {
-        getPosition();
-        super.onStart();
-    }
-
-    @Override
-    protected void onStop(){
-        Intent intent = new Intent(RunningActivity.this,MusicServer.class);
-        stopService(intent);
-        super.onStop();
-
-    }
-
-    public void getPosition() {
         //给定位客户端对象设置定位参数
+        mLocationOption.setInterval(6000);
         mLocationClient.setLocationOption(mLocationOption);
         //启动定位
         mLocationClient.startLocation();
     }
 
-    private void init(){
+    @Override
+    protected void onStop() {
+        Intent intent = new Intent(RunningActivity.this, MusicServer.class);
+        stopService(intent);
+        if (null != mLocationClient) {
+            mLocationClient.onDestroy();
+        }
+        super.onStop();
+    }
+
+    private void init() {
         pause_btn.setVisibility(View.VISIBLE);
         contuine_btn.setVisibility(View.INVISIBLE);
         finish_btn.setVisibility(View.INVISIBLE);
@@ -134,25 +154,93 @@ public class RunningActivity extends Activity {
 
             longitude = amapLocation.getLongitude();//获取经度
             latitude = amapLocation.getLatitude();//获取纬度
-            Toast.makeText(RunningActivity.this,"成功启动定位！"+longitude+"和"+latitude, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(RunningActivity.this, "成功定位！" + longitude + "和" + latitude, Toast.LENGTH_SHORT).show();
 //            String getlongitude = String.valueOf(longitude);
 //            String getlatitude = String.valueOf(latitude);
-            setGetDistance();
-
+            //启动跑步音乐服务
+            if (signal == 0) {
+                pos1 = new LatLng(latitude, longitude);
+            } else {
+                setRunMusic();
+                judgeChangeMusic();
+                getCalorie();
+            }
+            signal++;
         }
     };
 
 
-    private void setGetDistance(){
-        pos2 = new LatLng(longitude,latitude);
-        if (pos2!=null){
-            distance = AMapUtils.calculateLineDistance(pos1,pos2);
-            pos1 = pos2;
-            sum_distance += distance;
+    private void setRunMusic() {
+        pos2 = new LatLng(latitude, longitude);
+        //double distance_double = AMapUtils.calculateLineDistance(pos1, pos2);
+        double distance_double = getDistance(pos1, pos2);
+        float distance1 = (float) Math.abs(distance_double);
+        distance1 = Math.round(distance1);
+        pos1 = pos2;
+        sum_distance = sum_distance + distance1;
+        distance_str = String.valueOf(sum_distance / 1000);
+        distance_text.setText(distance_str);
+        avgspeed = ((distance1 / 6) * 60) / 1000;
+        String speed_str = String.valueOf(avgspeed);
+        speed_text.setText(speed_str);
+//        if (distance1 > 0) {
+//            holder.distance.setText(Utils.getDisDsrc(distance1));
+//        } else {
+//            holder.distance.setText("");
+//        }
+
+//        distance_two = (float) (Math.round(distance * 100)) / 100;
+        //Toast.makeText(RunningActivity.this,"double distance_double:"+distance_double+"距离" + distance1 + "总距离 " + sum_distance, Toast.LENGTH_SHORT).show();
+
+//        distance_int = (int) sum_distance_two;
+//        distance_text.setText(distance_int);
+//        float distance_two = (float) (Math.round(distance * 1000000)) / 1000000;
+//        avgspeed = (distance_two / 2) * 60;
+//        if (avgspeed > 0) {
+//
+//        }
+
+
+//        Bundle bundle_speed = new Bundle();
+//        bundle_speed.putFloat("avgspeed",avgspeed);
+//        Intent sendSpeed = new Intent(RunningActivity.this,MusicServer.class);
+//        sendSpeed.putExtras(bundle_speed);
+
+//        speed_int = (int) avgspeed;
+//        speed_text.setText(speed_int);
+    }
+
+    private void judgeChangeMusic() {
+        Intent k = new Intent(RunningActivity.this, MusicServer.class);
+        startService(k);
+        if (avgspeed > 0.15) {
+            con_music = false;
         }
-        avgspeed = distance/1;
-        //speed_int = (int)avgspeed;
-        //speed_text.setText(speed_int);
+
+
+    }
+
+    private void getCalorie() {
+        float distance_tmp = (sum_distance * 60)/1000;
+        String calorie_str = String.valueOf(distance_tmp);
+        calorie_text.setText(calorie_str);
+        //float per_tmp = (distance_tmp/100)*100;
+        per_text.setText(calorie_str+"%");
+    }
+
+    public double getDistance(LatLng start, LatLng end) {
+
+        double lon1 = (Math.PI / 180) * start.longitude;
+        double lon2 = (Math.PI / 180) * end.longitude;
+        double lat1 = (Math.PI / 180) * start.latitude;
+        double lat2 = (Math.PI / 180) * end.latitude;
+        //System.out.println("start  " + start.longitude + "2:" + start.latitude + "end   " + end.longitude + "2:" + end.latitude);
+        // 地球半径
+        double R = 6371;
+        // 两点间距离 km，如果想要米的话，结果*1000就可以了
+        double d = Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1))
+                * R;
+        return d * 1000;
     }
 
 
