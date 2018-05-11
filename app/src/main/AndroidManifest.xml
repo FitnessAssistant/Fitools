@@ -32,12 +32,10 @@
             android:name="com.amap.api.v2.apikey"
             android:value="cb5e2771f8b7483ce90b3c34ad21eaac" />
 
-        <activity android:name=".jiangshengda.MainActivity">
-
-        </activity>
+        <activity android:name=".jiangshengda.MainActivity"></activity>
         <activity android:name=".jiangshengda.SettingActivity" />
         <activity android:name=".jiangshengda.RunningActivity" />
-        <activity android:name=".jiangshengda.LoginActivity" >
+        <activity android:name=".jiangshengda.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,8 +55,9 @@
         <activity
             android:name=".jiangshengda.TrainVideoActivity"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".jiangshengda.MapActivity"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".jiangshengda.MapActivity" />
+        <activity android:name=".caizihuan.EditPersonalActivity"></activity>
     </application>
 
 </manifest>
