@@ -33,11 +33,7 @@
             android:value="cb5e2771f8b7483ce90b3c34ad21eaac" />
 
         <activity android:name=".jiangshengda.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".jiangshengda.SettingActivity" >
 
@@ -51,8 +47,16 @@
         <activity android:name=".jiangshengda.TrainTopActivity" />
         <activity android:name=".jiangshengda.RunCountdownActivity" />
         <activity android:name=".jiangshengda.ForgetPasswdActivity" />
-        <activity android:name=".jiangshengda.WelcomeOneActivity" />
-        <activity android:name=".jiangshengda.WelcomeTwoActivity" />
+        <activity android:name=".jiangshengda.WelcomeOneActivity" >
+
+        </activity>
+        <activity android:name=".jiangshengda.WelcomeTwoActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".jiangshengda.WelcomeThreeActivity" />
         <activity android:name=".jiangshengda.WelcomeFourActivity" />
         <activity android:name=".jiangshengda.WelcomeFiveActivity" />
