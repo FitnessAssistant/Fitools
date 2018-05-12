@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RunningActivity extends Activity {
+    private long mRecordTime;
     private TextView per_text;
     private String distance_str;
     private TextView calorie_text;
@@ -81,12 +82,30 @@ public class RunningActivity extends Activity {
         int hour = (int) ((SystemClock.elapsedRealtime() - timer.getBase()) / 1000 / 60);
         timer.setFormat("0" + String.valueOf(hour) + ":%s");
         timer.start();
+
+
         pause_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 pause_btn.setVisibility(View.INVISIBLE);
                 contuine_btn.setVisibility(View.VISIBLE);
                 finish_btn.setVisibility(View.VISIBLE);
+                stopTimer();
+            }
+        });
+        contuine_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startTimer();
+                pause_btn.setVisibility(View.VISIBLE);
+                contuine_btn.setVisibility(View.INVISIBLE);
+                finish_btn.setVisibility(View.INVISIBLE);
+            }
+        });
+        finish_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RunningActivity.this.finish();
             }
         });
         fog_of_war.setOnClickListener(new View.OnClickListener() {
@@ -228,6 +247,20 @@ public class RunningActivity extends Activity {
         per_text.setText(calorie_str+"%");
     }
 
+    private void startTimer(){
+        if (mRecordTime != 0) {
+            timer.setBase(timer.getBase() + (SystemClock.elapsedRealtime() - mRecordTime));
+        } else {
+            timer.setBase(SystemClock.elapsedRealtime());
+        }
+        timer.start();
+    }
+
+    private void stopTimer(){
+        timer.stop();
+        mRecordTime = SystemClock.elapsedRealtime();
+    }
+
     public double getDistance(LatLng start, LatLng end) {
 
         double lon1 = (Math.PI / 180) * start.longitude;
@@ -238,8 +271,7 @@ public class RunningActivity extends Activity {
         // 地球半径
         double R = 6371;
         // 两点间距离 km，如果想要米的话，结果*1000就可以了
-        double d = Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1))
-                * R;
+        double d = Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1)) * R;
         return d * 1000;
     }
 

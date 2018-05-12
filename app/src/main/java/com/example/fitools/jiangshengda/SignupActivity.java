@@ -34,7 +34,6 @@ import org.apache.http.Header;
 import java.io.UnsupportedEncodingException;
 
 public class SignupActivity extends AppCompatActivity {
-    private ImageView back;
     private EditText accountet;
     private EditText passwordet;
     private EditText identifyet;
@@ -74,7 +73,6 @@ public class SignupActivity extends AppCompatActivity {
      * 获得界面控件
      */
     private void getViews(){
-        back = (ImageView) findViewById(R.id.jsd_signup_return_btn);
         accountet = (EditText)findViewById(R.id.signup_account_et);
         passwordet = (EditText)findViewById(R.id.signup_password_et);
         identifyet = (EditText)findViewById(R.id.signup_identify_et);
@@ -97,12 +95,12 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SignupActivity.this.finish();
-            }
-        });
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SignupActivity.this.finish();
+//            }
+//        });
         passwordcb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

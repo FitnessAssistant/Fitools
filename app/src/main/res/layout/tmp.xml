@@ -6,6 +6,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp">
+        <ImageView
+            android:id="@+id/jsd_signup_return_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/turn_left"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,14 +51,16 @@
                     android:layout_height="50dp"
                     android:layout_weight="4">
                     <EditText
-                        android:id="@+id/signup_account_et"
+                        android:id="@+id/login_input_phone_et"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:hint="请输入手机号/邮箱"
+                        android:hint="请输入手机号"
                         android:textCursorDrawable="@drawable/sy_login_cursor_bg"
                         android:maxLines="1"
+                        android:ems="10"
+                        android:inputType="phone"
                         android:background="@null"
                         android:textColor="@color/black_icon"/>
                 </RelativeLayout>
@@ -60,6 +70,7 @@
                     android:layout_weight="1">
                 </RelativeLayout>
             </TableRow>
+            <requestFocus />
             <TableRow
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -83,7 +94,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="3">
                     <EditText
-                        android:id="@+id/signup_identify_et"
+                        android:id="@+id/login_input_code_et"
                         android:layout_marginLeft="15dp"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
@@ -99,22 +110,12 @@
                     android:layout_width="0dip"
                     android:layout_height="50dp"
                     android:layout_weight="2">
-                    <TextView
-                        android:id="@+id/signup_identifycode_bt"
-                        android:layout_centerVertical="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/jsd_shape_white"
-                        android:layout_width="100dp"
+                    <Button
                         android:text="获取验证码"
-                        android:textSize="14dp"
-                        android:gravity="center"
-                        android:textColor="@color/gray_word"
-                        android:layout_height="35dp" />
-                    <com.example.fitools.shenyue.CountdownTextView
-                        android:id="@+id/signup_identifytimer_tv"
+                        android:id="@+id/login_request_code_btn"
                         android:layout_width="wrap_content"
+                        android:layout_alignParentRight="true"
                         android:layout_height="wrap_content"
-                        android:visibility="invisible"
                         android:layout_alignTop="@id/signup_identifycode_bt"
                         android:layout_alignLeft="@id/signup_identifycode_bt"
                         android:layout_alignBottom="@id/signup_identifycode_bt"
@@ -183,7 +184,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/signup_sign_btn"
+            android:id="@+id/login_commit_btn"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:text="注册"
