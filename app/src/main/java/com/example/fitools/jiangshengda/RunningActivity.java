@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RunningActivity extends Activity {
+    private long mRecordTime;
     private TextView per_text;
     private String distance_str;
     private TextView calorie_text;
@@ -81,18 +82,30 @@ public class RunningActivity extends Activity {
         int hour = (int) ((SystemClock.elapsedRealtime() - timer.getBase()) / 1000 / 60);
         timer.setFormat("0" + String.valueOf(hour) + ":%s");
         timer.start();
+
+
         pause_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 pause_btn.setVisibility(View.INVISIBLE);
                 contuine_btn.setVisibility(View.VISIBLE);
                 finish_btn.setVisibility(View.VISIBLE);
+                stopTimer();
             }
         });
         contuine_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startTimer();
+                pause_btn.setVisibility(View.VISIBLE);
+                contuine_btn.setVisibility(View.INVISIBLE);
+                finish_btn.setVisibility(View.INVISIBLE);
+            }
+        });
+        finish_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RunningActivity.this.finish();
             }
         });
         fog_of_war.setOnClickListener(new View.OnClickListener() {
@@ -232,6 +245,20 @@ public class RunningActivity extends Activity {
         calorie_text.setText(calorie_str);
         //float per_tmp = (distance_tmp/100)*100;
         per_text.setText(calorie_str+"%");
+    }
+
+    private void startTimer(){
+        if (mRecordTime != 0) {
+            timer.setBase(timer.getBase() + (SystemClock.elapsedRealtime() - mRecordTime));
+        } else {
+            timer.setBase(SystemClock.elapsedRealtime());
+        }
+        timer.start();
+    }
+
+    private void stopTimer(){
+        timer.stop();
+        mRecordTime = SystemClock.elapsedRealtime();
     }
 
     public double getDistance(LatLng start, LatLng end) {
