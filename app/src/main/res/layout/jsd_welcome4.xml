@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp">
         <ImageView
-            android:id="@+id/jsd_point_return_btn"
+            android:id="@+id/welcome4_return_btn"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="20dp"
@@ -100,7 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
-            android:id="@+id/jsd_sex_date_next_btn"
+            android:id="@+id/welcome4_next_rl"
             android:layout_alignParentBottom="true"
             android:background="#57505F"
             android:layout_width="match_parent"
