@@ -1,5 +1,6 @@
 package com.example.fitools.jiangshengda;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -39,12 +40,12 @@ import java.io.UnsupportedEncodingException;
 
 public class LoginActivity extends AppCompatActivity {
     private TextView newuser;
-    private ImageView back;
     private TextView forgetpwd;
     private EditText passwordet;
     private EditText accountet;
     private Button regbt;
     private CheckBox passwordcb;
+    public static final String ONE = "";
     public  static String USER="ABC";
     int utilbt = 0;
     private AsyncHttpResponseHandler mHandler = new AsyncHttpResponseHandler(){
@@ -52,9 +53,21 @@ public class LoginActivity extends AppCompatActivity {
         public void onSuccess(int i, Header[] headers, byte[] bytes) {
             try {
                 String str1 = new String(bytes,"UTF-8");
-                USER = str1;
-//                Toast.makeText(getApplicationContext(),str1,Toast.LENGTH_SHORT).show();
-                MainActivity.actionStartActivity(LoginActivity.this, str1);
+
+                if (str1.equals("用户名或密码不正确")){
+                    Toast.makeText(getApplicationContext(),str1,Toast.LENGTH_SHORT).show();
+                }else {
+
+                    if (str1.substring(0,3).equals("ONE")){
+                        USER = str1.substring(3);
+                        WelcomeOneActivity.actionStartActivity(LoginActivity.this,USER);
+                    }else {
+                        USER = str1;
+                        MainActivity.actionStartActivity(LoginActivity.this, str1);
+                        Toast.makeText(getApplicationContext(),str1,Toast.LENGTH_SHORT).show();
+                    }
+                }
+
             }catch (UnsupportedEncodingException e){
                 e.printStackTrace();
             }
@@ -72,12 +85,16 @@ public class LoginActivity extends AppCompatActivity {
         setListener();
         hidestatusbar();
     }
+    public static void actionStartActivity(Context packageContext, String id) {
+        Intent i = new Intent(packageContext, LoginActivity.class);
+        i.putExtra(ONE, id);
+        packageContext.startActivity(i);
+    }
     /**
      * 获得界面控件
      */
     private void getViews(){
         newuser = (TextView) findViewById(R.id.jsd_register_newuser_signup);
-        back = (ImageView) findViewById(R.id.jsd_register_return_btn);
         forgetpwd = (TextView) findViewById(R.id.jsd_register_forgetpasswd);
         passwordet = (EditText)findViewById(R.id.register_password_et);
         accountet = (EditText)findViewById(R.id.register_account_et);
@@ -93,12 +110,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(LoginActivity.this,SignupActivity.class);
                 startActivity(i);
-            }
-        });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LoginActivity.this.finish();
             }
         });
         forgetpwd.setOnClickListener(new View.OnClickListener() {
@@ -175,7 +186,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     if(utilbt == 0){
-
                     }else {
                         regbt.setBackgroundColor(ContextCompat.getColor(LoginActivity.this, R.color.sblack));
                         Thread thread = new Thread(){

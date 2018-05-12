@@ -113,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
-            android:id="@+id/jsd_sex_date_next_btn"
+            android:id="@+id/welcome2_next_rl"
             android:layout_alignParentBottom="true"
             android:background="#57505F"
             android:layout_width="match_parent"

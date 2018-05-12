@@ -1,6 +1,7 @@
 package com.example.fitools.jiangshengda;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,6 +20,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.fitools.R;
 import com.example.fitools.shenyue.ImageUtils;
@@ -32,6 +36,10 @@ public class WelcomeOneActivity extends AppCompatActivity {
     protected static final int TAKE_PICTURE = 1;
     private static final int CROP_SMALL_PICTURE = 2;
     protected static Uri tempUri;
+    public static  String WELUSERID = "WelcomeOneActivity.USERID";
+    public static  String NICKNAME = "NICKNAME";
+    private RelativeLayout nextrl;
+    private EditText sinknameet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +51,27 @@ public class WelcomeOneActivity extends AppCompatActivity {
                 showChoosePicDialog(v);
             }
         });
+        nextrl = (RelativeLayout)findViewById(R.id.welcome1_next_rl);
+        sinknameet = (EditText)findViewById(R.id.welcome1_sinkname_et);
+        nextrl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NICKNAME = sinknameet.getText().toString();
+                if (!NICKNAME.equals("")){
+                    Intent intent = new Intent(WelcomeOneActivity.this, WelcomeTwoActivity.class);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(WelcomeOneActivity.this,"昵称不能为空",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         hidestatusbar();
+    }
+    public static void actionStartActivity(Context packageContext, String id){
+        Intent i = new Intent(packageContext, WelcomeOneActivity.class);
+        i.putExtra(WELUSERID, id);
+        packageContext.startActivity(i);
+
     }
     /**
      * 显示修改头像的对话框

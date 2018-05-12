@@ -14,7 +14,7 @@
         <EditText
             android:id="@+id/welcome1_sinkname_et"
             android:textSize="25dp"
-            android:text="爱运动的黄油面包干"
+            android:hint="爱运动的黄油面包干"
             android:layout_below="@id/welcome1_sinkname_tv"
             android:layout_alignLeft="@id/welcome1_sinkname_tv"
             android:layout_alignRight="@id/welcome1_sinkname_tv"
@@ -54,7 +54,7 @@
             android:layout_marginTop="40dp"
             android:src="@mipmap/welcome_icon" />
         <RelativeLayout
-            android:id="@+id/name_icon_next_btn"
+            android:id="@+id/welcome1_next_rl"
             android:layout_alignParentBottom="true"
             android:background="#57505F"
             android:layout_width="match_parent"
