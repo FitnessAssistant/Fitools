@@ -49,7 +49,7 @@ public class MyView extends View {
         SCREEN_W = screenWidth;
         SCREEN_H = screenHeight;
     }
-
+    //设置笔画属性
     private void setting(){
         // setting paint
         mPaint = new Paint();

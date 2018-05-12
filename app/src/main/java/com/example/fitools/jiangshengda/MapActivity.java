@@ -172,18 +172,18 @@ public class MapActivity extends Activity implements LocationSource, AMapLocatio
 
             pos = new LatLng(x,y);
             Projection projection = aMap.getProjection();
-
+            //将地图上的经纬度点转化为屏幕上的坐标点
             Point dot = projection.toScreenLocation(pos);
             dot_x = dot.x;
             dot_y = dot.y;
             if (fog_draw_pause_judge){
                 if (i == 0){
                     myView.start_pot(dot_x,dot_y);
+                    i++;
                 } else{
                     myView.line(dot_x, dot_y);
                 }
-                i++;
-                Toast.makeText(MapActivity.this, "dot_x:" + dot_x + ", dot_y:" + dot_y, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MapActivity.this, "dot_x:" + dot_x + ", dot_y:" + dot_y, Toast.LENGTH_SHORT).show();
             }
         } else {
             String errText = "定位失败," + amapLocation.getErrorCode() + ": " + amapLocation.getErrorInfo();

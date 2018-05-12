@@ -44,7 +44,7 @@ public class MusicServer extends Service {
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId){
-        data = intent.getStringExtra("avgspeed");
+        //data = intent.getStringExtra("avgspeed");
         return super.onStartCommand(intent, flags, startId);
     }
 
