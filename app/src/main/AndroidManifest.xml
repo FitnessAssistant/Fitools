@@ -45,7 +45,7 @@
             android:name="com.amap.api.v2.apikey"
             android:value="cb5e2771f8b7483ce90b3c34ad21eaac" />
 
-        <activity android:name=".jiangshengda.MainActivity">
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,33 +57,34 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".jiangshengda.SettingActivity" />
-        <activity android:name=".jiangshengda.RunningActivity" />
-        <activity android:name=".jiangshengda.LoginActivity">
+        <activity android:name=".Activity.SettingActivity" />
+        <activity android:name=".Activity.RunningActivity" />
+        <activity android:name=".Activity.LoginActivity">
         </activity>
-        <activity android:name=".jiangshengda.SignupActivity" />
-        <activity android:name=".jiangshengda.RunTopActivity" />
-        <activity android:name=".jiangshengda.TrainTopActivity" />
-        <activity android:name=".jiangshengda.RunCountdownActivity" />
-        <activity android:name=".jiangshengda.ForgetPasswdActivity" />
-        <activity android:name=".jiangshengda.WelcomeOneActivity"></activity>
-        <activity android:name=".jiangshengda.WelcomeTwoActivity"></activity>
-        <activity android:name=".jiangshengda.WelcomeThreeActivity" />
-        <activity android:name=".jiangshengda.WelcomeFourActivity" />
-        <activity android:name=".jiangshengda.WelcomeFiveActivity" />
+        <activity android:name=".Activity.SignupActivity" />
+        <activity android:name=".Activity.RunTopActivity" />
+        <activity android:name=".Activity.TrainTopActivity" />
+        <activity android:name=".Activity.RunCountdownActivity" />
+        <activity android:name=".Activity.ForgetPasswdActivity" />
+        <activity android:name=".Activity.WelcomeOneActivity"></activity>
+        <activity android:name=".Activity.WelcomeTwoActivity"></activity>
+        <activity android:name=".Activity.WelcomeThreeActivity" />
+        <activity android:name=".Activity.WelcomeFourActivity" />
+        <activity android:name=".Activity.WelcomeFiveActivity" />
+        <activity android:name=".Activity.EditPersonalActivity" />
 
         <service android:name="com.amap.api.location.APSService" />
         <service
-            android:name=".jiangshengda.MusicServer"
+            android:name=".Service.MusicServer"
             android:exported="true"
             android:process=":remote"></service>
 
         <activity
-            android:name=".jiangshengda.TrainVideoActivity"
+            android:name=".Activity.TrainVideoActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".jiangshengda.MapActivity" />
-        <activity android:name=".jiangshengda.SMSignupActivity"></activity>
+        <activity android:name=".Activity.MapActivity" />
+        <activity android:name=".Activity.SMSignupActivity"></activity>
     </application>
 
 </manifest>

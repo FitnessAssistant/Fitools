@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Fitools\\flashview\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
+            "outputFile": "H:\\Projects\\Fitools\\flashview\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Santa\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\c0f90eec0f4f4c880725e1ca682d5fe3\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\DELL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\24e10fe7c9bd2c570de28384c768af8b\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

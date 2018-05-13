@@ -32,7 +32,7 @@
             <TableRow
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/jsd_register_bottom_line">
+                android:background="@drawable/register_bottom_line">
                 <RelativeLayout
                     android:layout_height="50dp"
                     android:layout_width="0dip"
@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:hint="请输入手机号"
-                        android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+                        android:textCursorDrawable="@drawable/login_cursor_bg"
                         android:maxLines="1"
                         android:ems="10"
                         android:inputType="phone"
@@ -75,7 +75,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/jsd_register_bottom_line">
+                android:background="@drawable/register_bottom_line">
                 <RelativeLayout
                     android:layout_height="50dp"
                     android:layout_width="0dip"
@@ -100,7 +100,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="请输入验证码"
-                        android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+                        android:textCursorDrawable="@drawable/login_cursor_bg"
                         android:maxLines="1"
                         android:background="@null"
                         android:textColor="@color/black_icon"/>
@@ -123,14 +123,14 @@
                         android:gravity="center"
                         android:textSize="14dp"
                         android:textColor="@color/gray_word"
-                        android:background="@drawable/sy_signup_identifytv_bg"/>
+                        android:background="@drawable/signup_identifytv_bg"/>
                 </RelativeLayout>
             </TableRow>
             <TableRow
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/jsd_register_bottom_line"
+                android:background="@drawable/register_bottom_line"
                 android:layout_marginTop="15dp">
                 <RelativeLayout
                     android:layout_height="50dp"
@@ -156,7 +156,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="请输入密码（至少6位）"
-                        android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+                        android:textCursorDrawable="@drawable/login_cursor_bg"
                         android:maxLines="1"
                         android:background="@null"
                         android:inputType="textPassword"
@@ -174,7 +174,7 @@
                         android:layout_width="23dp"
                         android:layout_height="15dp"
                         android:button="@null"
-                        android:background="@drawable/sy_passwordeye_bg"/>
+                        android:background="@drawable/passwordeye_bg"/>
                 </RelativeLayout>
             </TableRow>
         </TableLayout>
@@ -250,7 +250,7 @@
                 android:layout_height="21dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:background="@drawable/jsd_register_bottom_line"></RelativeLayout>
+                android:background="@drawable/register_bottom_line"></RelativeLayout>
             <TextView
                 android:textSize="16dp"
                 android:background="@color/white"
