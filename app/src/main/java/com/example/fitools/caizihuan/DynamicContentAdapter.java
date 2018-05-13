@@ -53,6 +53,7 @@ public class DynamicContentAdapter extends RecyclerView.Adapter implements View.
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ((ViewHolder)holder).img.setImageBitmap(readBitMap(context,hci.get(position).getImgsrc()));
+        ((ViewHolder)holder).img_header.setImageBitmap(readBitMap(context,hci.get(position).getImgsrc_header()));
         ((ViewHolder)holder).name.setText(hci.get(position).getName());
         ((ViewHolder)holder).time.setText(hci.get(position).getTime());
         ((ViewHolder)holder).estimate.setText(hci.get(position).getEstimate());

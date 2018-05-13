@@ -76,9 +76,9 @@ public class DynamicFragment extends Fragment {
         titlelist.add(new DynamicTitleItem(0,"推荐"));
         titlelist.add(new DynamicTitleItem(1,"关注"));
         titlelist.add(new DynamicTitleItem(2,"附近"));
-        contentlist.add(new DynamicContentItem(0,R.mipmap.find_img1,R.mipmap.mitao,"Leff","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
-        ,"20","20"));
-        contentlist.add(new DynamicContentItem(1,R.mipmap.find_img1,R.mipmap.mitao,"Leff","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
+        contentlist.add(new DynamicContentItem(1,R.mipmap.find_img2,R.mipmap.tou1,"Santa","12小时前","每一天都要坚持坚持再坚持，已经有腹肌了哦，虽然累一些但是都是值得的，大家一起加油哈哈哈！！！"
+                ,"20","20"));
+        contentlist.add(new DynamicContentItem(0,R.mipmap.find_img1,R.mipmap.mitao,"Left","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
                 ,"20","20"));
     }
 
@@ -98,25 +98,25 @@ public class DynamicFragment extends Fragment {
                 switch (position){
                     case 0:
                         contentlist.clear();
-                        contentlist.add(new DynamicContentItem(0,R.mipmap.find_img1,R.mipmap.mitao,"Leff","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
+                        contentlist.add(new DynamicContentItem(1,R.mipmap.find_img2,R.mipmap.tou1,"Santa","12小时前","每一天都要坚持坚持再坚持，已经有腹肌了哦，虽然累一些但是都是值得的，大家一起加油哈哈哈！！！"
                                 ,"20","20"));
-                        contentlist.add(new DynamicContentItem(1,R.mipmap.find_img1,R.mipmap.mitao,"Leff","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
+                        contentlist.add(new DynamicContentItem(0,R.mipmap.find_img1,R.mipmap.mitao,"Left","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
                                 ,"20","20"));
                         contentAdapter.notifyDataSetChanged();
                         break;
                     case 1:
                         contentlist.clear();
-                        contentlist.add(new DynamicContentItem(0,R.mipmap.find_img1,R.mipmap.mitao,"Leff","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
+                        contentlist.add(new DynamicContentItem(0,R.mipmap.find_img1,R.mipmap.mitao,"Left","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
                                 ,"20","20"));
-                        contentlist.add(new DynamicContentItem(1,R.mipmap.find_img1,R.mipmap.mitao,"Leff","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
+                        contentlist.add(new DynamicContentItem(1,R.mipmap.find_img4,R.mipmap.tou2,"caicai","一天前","今天去了海边晨跑感觉很好呢，大家有没有和我一样坚持呢，我期待你们和我一起加油啊~~~"
                                 ,"20","20"));
                         contentAdapter.notifyDataSetChanged();
                         break;
                     case 2:
                         contentlist.clear();
-                        contentlist.add(new DynamicContentItem(0,R.mipmap.find_img1,R.mipmap.mitao,"Leff","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
+                        contentlist.add(new DynamicContentItem(1,R.mipmap.find_img3,R.mipmap.tou3,"yueyue","15小时前","想要仰望星空就一定要脚踏实地呢，健身也是一样，要一步一步努力才可以达到最终的目标，大家加油哦！"
                                 ,"20","20"));
-                        contentlist.add(new DynamicContentItem(1,R.mipmap.find_img1,R.mipmap.mitao,"Leff","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
+                        contentlist.add(new DynamicContentItem(0,R.mipmap.find_img1,R.mipmap.mitao,"Left","一天前","今天下雨了，我还要继续坚持减肥啊啊，因为瘦下去才能美美哒对不对。所以小仙女们要和我一起加油哦，，，一起变得美美哒！！！~"
                                 ,"20","20"));
                         contentAdapter.notifyDataSetChanged();
                         break;

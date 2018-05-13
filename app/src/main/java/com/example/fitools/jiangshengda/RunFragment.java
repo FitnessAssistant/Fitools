@@ -43,10 +43,10 @@ public class RunFragment extends Fragment {
 //        view_time = inflater.inflate(R.layout.jsd_viewpager_time,null);
 
         viewList = new ArrayList<View>();// 将要分页显示的View装入数组中
-        viewList.add(inflater.inflate(R.layout.jsd_viewpager_run,null,false));
-        viewList.add(inflater.inflate(R.layout.jsd_viewpager_calorie,null,false));
-        viewList.add(inflater.inflate(R.layout.jsd_viewpager_distance,null,false));
-        viewList.add(inflater.inflate(R.layout.jsd_viewpager_time,null,false));
+        viewList.add(inflater.inflate(R.layout.viewpager_run,null,false));
+        viewList.add(inflater.inflate(R.layout.viewpager_calorie,null,false));
+        viewList.add(inflater.inflate(R.layout.viewpager_distance,null,false));
+        viewList.add(inflater.inflate(R.layout.viewpager_time,null,false));
 //        viewList.add(view_run);
 //        viewList.add(view_calorie);
 //        viewList.add(view_distance);

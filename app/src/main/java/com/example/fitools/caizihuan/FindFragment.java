@@ -31,7 +31,7 @@ public class FindFragment extends Fragment {
     private ArrayList<DataItem> item_list;
     private String titles[] = new String[]{"你真的相信体重秤上的数字？","手把手教你吃掉自己的冬膘","这四种食物，身材好的人不吃"};//文章标题
     private String contents[] = new String[]{"为什么越练越重？这才是真正的原因！","今天不跟你讲什么控制食欲，低盐低脂的大空话，手把手教你定制........","那些身材好的人，到底每天吃什么东西？难道真有什么神奇的食物........"};//文章内容
-    private int imgsrc[] = new int[]{R.mipmap.find_item1,R.mipmap.find_item2,R.mipmap.find_item3};//文章图片
+    private int imgsrc[] = new int[]{R.mipmap.find_item4,R.mipmap.find_item5,R.mipmap.find_item6};//文章图片
     private RecyclerView mRecyclerView;
     private MainActivity mainActivity;
 

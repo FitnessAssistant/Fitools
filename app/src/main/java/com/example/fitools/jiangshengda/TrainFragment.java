@@ -85,8 +85,8 @@ public class TrainFragment extends Fragment {
         ls.add(new Options((long) 4, "含胸驼背改善练习","12") );
         fri.add(new FitRecommendItem(0,R.mipmap.fit_recommend1,"健身舞塑性训练"));
         fri.add(new FitRecommendItem(1,R.mipmap.fit_recommend2,"纤体瑜伽系列一"));
-        fri.add(new FitRecommendItem(3,R.mipmap.fit_recommend1,"健身舞塑性训练"));
-        fri.add(new FitRecommendItem(4,R.mipmap.fit_recommend2,"纤体瑜伽系列一"));
+        fri.add(new FitRecommendItem(3,R.mipmap.fit_recommend3,"综合热身训练"));
+        fri.add(new FitRecommendItem(4,R.mipmap.fit_recommend4,"全身拉伸训练一"));
     }
 
     /**
