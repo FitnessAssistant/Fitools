@@ -10,7 +10,7 @@
     android:paddingTop="0dp"
     android:orientation="vertical"
     android:background="@color/bgdgray"
-    tools:context="com.example.fitools.jiangshengda.MainActivity">
+    tools:context="com.example.fitools.Activity.MainActivity">
 
     <FrameLayout
         android:id="@+id/main_fl"
