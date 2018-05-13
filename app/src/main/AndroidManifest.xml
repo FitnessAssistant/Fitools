@@ -36,11 +36,7 @@
         <activity android:name=".jiangshengda.SettingActivity" />
         <activity android:name=".jiangshengda.RunningActivity" />
         <activity android:name=".jiangshengda.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".jiangshengda.SignupActivity" />
         <activity android:name=".jiangshengda.RunTopActivity" />
@@ -57,7 +53,13 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".jiangshengda.MapActivity" />
-        <activity android:name=".caizihuan.EditPersonalActivity"></activity>
+        <activity android:name=".caizihuan.EditPersonalActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

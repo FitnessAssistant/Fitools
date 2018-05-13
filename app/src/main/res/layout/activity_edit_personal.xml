@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bgdgray">
     <RelativeLayout
         android:background="@drawable/shape_view_bottom_line_light"
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="55dp">
         <ImageView
-            android:id="@+id/jsd_setting_return_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/czh_to_setting_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_centerVertical="true"
@@ -18,27 +19,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textColor="@color/black_icon"
             android:text="个人资料"/>
         <TextView
+            android:id="@+id/czh_savepersonal_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:textSize="20dp"
+            android:textSize="18dp"
+            android:layout_centerVertical="true"
             android:textColor="@color/black_icon"
             android:text="保存"
-            android:layout_margin="center"/>
+            android:layout_marginRight="10dp"/>
     </RelativeLayout>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TableRow
-            android:background="@drawable/shape_view_bottom_line_light">
+            android:background="@drawable/shape_view_bottom_line_light2">
             <RelativeLayout
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
+                android:layout_height="55dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,23 +49,25 @@
                     android:layout_marginLeft="15dp"
                     android:layout_centerVertical="true"
                     android:textColor="@color/black_icon"
-                    android:textSize="20dp"/>
+                    android:textSize="18dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
+                android:layout_height="55dp"
+                android:id="@+id/czh_headerimg_rl">
                 <com.example.fitools.jiangshengda.CircleImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:id="@+id/CivHeader"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_toLeftOf="@+id/jsd_setting_arrow_right_img"
                     android:layout_marginRight="20dp"
                     android:layout_centerVertical="true"
                     android:src="@mipmap/welcome_icon"/>
                 <ImageView
                     android:id="@+id/jsd_setting_arrow_right_img"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="5dp"
@@ -70,58 +75,39 @@
             </RelativeLayout>
         </TableRow>
         <TableRow
-            android:background="@drawable/shape_view_bottom_line_light">
+            android:background="@drawable/shape_view_bottom_line_light2">
             <RelativeLayout
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
+                android:layout_height="55dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="清除缓存"
+                    android:text="昵称"
                     android:layout_marginLeft="15dp"
                     android:layout_centerVertical="true"
                     android:textColor="@color/black_icon"
-                    android:textSize="20dp"/>
+                    android:textSize="18dp"/>
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/czh_nickname_rl"
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
+                android:layout_height="55dp">
                 <TextView
-                    android:textSize="20dp"
+                    android:id="@+id/czh_nickname_tv"
+                    android:textSize="18dp"
                     android:textColor="@color/black_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="15dp"
-                    android:text="14M"/>
-            </RelativeLayout>
-        </TableRow>
-        <TableRow
-            android:background="@drawable/shape_view_bottom_line_light">
-            <RelativeLayout
-                android:layout_weight="1"
-                android:layout_width="0dip"
-                android:layout_height="70dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="消息设置"
-                    android:layout_marginLeft="15dp"
-                    android:layout_centerVertical="true"
-                    android:textColor="@color/black_icon"
-                    android:textSize="20dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_weight="1"
-                android:layout_width="0dip"
-                android:layout_height="70dp">
-
+                    android:layout_marginRight="30dp"
+                    android:text="爱运动的面包干"/>
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:id="@+id/czh_setting_sex_img"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="5dp"
@@ -129,28 +115,38 @@
             </RelativeLayout>
         </TableRow>
         <TableRow
-            android:background="@drawable/shape_view_bottom_line_light">
+            android:background="@drawable/shape_view_bottom_line_light2">
             <RelativeLayout
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
+                android:layout_height="55dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="反馈与帮助"
+                    android:text="性别"
                     android:layout_marginLeft="15dp"
                     android:layout_centerVertical="true"
                     android:textColor="@color/black_icon"
-                    android:textSize="20dp"/>
+                    android:textSize="18dp"/>
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/czh_sex_rl"
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
-
+                android:layout_height="55dp">
+                <TextView
+                    android:id="@+id/czh_sex_tv"
+                    android:textSize="18dp"
+                    android:textColor="@color/black_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30dp"
+                    android:text="女"/>
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="5dp"
@@ -159,28 +155,38 @@
         </TableRow>
         <TableRow
             android:layout_marginTop="30dp"
-            android:background="@drawable/shape_view_bottom_line_light">
+            android:background="@drawable/shape_view_bottom_line_light2">
             <RelativeLayout
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
+                android:layout_height="55dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="关于我们"
+                    android:text="生日"
                     android:layout_marginLeft="15dp"
                     android:layout_centerVertical="true"
                     android:textColor="@color/black_icon"
-                    android:textSize="20dp"/>
+                    android:textSize="18dp"/>
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/czh_birth_rl"
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
-
+                android:layout_height="55dp">
+                <TextView
+                    android:id="@+id/czh_birth_tv"
+                    android:textSize="18dp"
+                    android:textColor="@color/black_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30dp"
+                    android:text="1996-09-10"/>
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="5dp"
@@ -188,33 +194,41 @@
             </RelativeLayout>
         </TableRow>
         <TableRow
-            android:background="@drawable/shape_view_bottom_line_light">
+            android:background="@drawable/shape_view_bottom_line_light2">
             <RelativeLayout
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
+                android:layout_height="55dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="个人资料"
+                    android:text="所在城市"
                     android:layout_marginLeft="15dp"
                     android:layout_centerVertical="true"
                     android:textColor="@color/black_icon"
-                    android:textSize="20dp"/>
+                    android:textSize="18dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_weight="1"
                 android:layout_width="0dip"
-                android:layout_height="70dp">
+                android:layout_height="55dp">
                 <TextView
-                    android:textSize="20dp"
+                    android:id="@+id/czh_city_tv"
+                    android:textSize="18dp"
                     android:textColor="@color/black_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="15dp"
-                    android:text="1.0.0"/>
+                    android:layout_marginRight="30dp"
+                    android:text="北京，北京市"/>
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@mipmap/arrow_right"/>
             </RelativeLayout>
         </TableRow>
     </TableLayout>
