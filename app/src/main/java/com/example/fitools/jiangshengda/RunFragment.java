@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.fitools.R;
 
@@ -20,6 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RunFragment extends Fragment {
+    private TextView speed_text;
+    private TextView time_text;
+    private TextView distance_text;
     private String meg="NomoralMap";
     private ImageView map_btn;
     private LinearLayout run_xml;
@@ -29,6 +33,16 @@ public class RunFragment extends Fragment {
     private RelativeLayout start_run_rl;
     private MyPagerAdapter mAdapter;
     @RequiresApi(api = Build.VERSION_CODES.O)
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        Bundle bundle = getArguments();
+//        speed_text.setText(bundle.getString("speed"));
+//        time_text.setText(bundle.getString("time"));
+//        distance_text.setText(bundle.getString("distance"));
+//    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,6 +61,10 @@ public class RunFragment extends Fragment {
         viewList.add(inflater.inflate(R.layout.jsd_viewpager_calorie,null,false));
         viewList.add(inflater.inflate(R.layout.jsd_viewpager_distance,null,false));
         viewList.add(inflater.inflate(R.layout.jsd_viewpager_time,null,false));
+        speed_text = (TextView) v.findViewById(R.id.viewpager_run_speed);
+        time_text = (TextView) v.findViewById(R.id.viewpager_run_timer);
+        distance_text = (TextView) v.findViewById(R.id.viewpager_run_distance);
+
 //        viewList.add(view_run);
 //        viewList.add(view_calorie);
 //        viewList.add(view_distance);
