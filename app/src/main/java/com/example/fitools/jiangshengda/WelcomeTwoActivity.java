@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.fitools.R;
@@ -23,6 +24,9 @@ public class WelcomeTwoActivity extends AppCompatActivity {
     private TextView tvBirthDate;
     private CheckBox mancb;
     private CheckBox womencb;
+    private RelativeLayout nextrl;
+    public static String SEX = "SEX";
+    public static String BIRTHDAY = "BIRTHDAY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,19 +39,23 @@ public class WelcomeTwoActivity extends AppCompatActivity {
         tvBirthDate = (TextView)findViewById(R.id.welcome2_birthdayicon_tv);
         mancb = (CheckBox) findViewById(R.id.welcome2_man_cb);
         womencb = (CheckBox) findViewById(R.id.welcome2_women_cb);
+        nextrl = (RelativeLayout)findViewById(R.id.welcome2_next_rl);
     }
     void setListener(){
         MyListener listener = new MyListener();
         tvBirthDate.setOnClickListener(listener);
+        nextrl.setOnClickListener(listener);
         mancb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     mancb.setTextColor(getResources().getColor(R.color.white));
                     womencb.setChecked(false);
+                    womencb.setTextColor(getResources().getColor(R.color.gray_word));
                 }else {
-                    mancb.setTextColor(getResources().getColor(R.color.gray_word));
-                    womencb.setChecked(true);
+                    if (!womencb.isChecked()){
+                        mancb.setChecked(true);
+                    }
                 }
             }
         });
@@ -57,9 +65,11 @@ public class WelcomeTwoActivity extends AppCompatActivity {
                 if (isChecked){
                     womencb.setTextColor(getResources().getColor(R.color.white));
                     mancb.setChecked(false);
+                    mancb.setTextColor(getResources().getColor(R.color.gray_word));
                 }else {
-                    womencb.setTextColor(getResources().getColor(R.color.gray_word));
-                    mancb.setChecked(true);
+                    if (!mancb.isChecked()){
+                        womencb.setChecked(true);
+                    }
                 }
             }
         });
@@ -74,7 +84,15 @@ public class WelcomeTwoActivity extends AppCompatActivity {
                 case R.id.welcome2_birthdayicon_tv:
                     showDatePickDlg();
                     break;
-
+                case R.id.welcome2_next_rl:
+                    if (mancb.isChecked()){
+                        SEX = "0";
+                    }else {
+                        SEX = "1";
+                    }
+                    BIRTHDAY = tvBirthDate.getText().toString();
+                    Intent intent = new Intent(WelcomeTwoActivity.this, WelcomeThreeActivity.class);
+                    startActivity(intent);
             }
         }
     }

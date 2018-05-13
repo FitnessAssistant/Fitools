@@ -15,54 +15,102 @@
             android:src="@mipmap/turn_left"/>
     </RelativeLayout>
     <RelativeLayout
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="190dp">
         <TextView
-            android:layout_centerInParent="true"
+            android:id="@+id/welcome3_stature_tv"
+            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="你的身高是？"
             android:textColor="@color/black_icon"
             android:textSize="@dimen/welcome_font_size"/>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <EditText
-            android:layout_centerInParent="true"
+            android:id="@+id/welcome3_stature_et"
+            android:layout_alignLeft="@id/welcome3_stature_tv"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+            android:layout_below="@id/welcome3_stature_tv"
             android:textSize="@dimen/welcome_font_size"
-            android:text="165cm"
+            android:hint="160"
+            android:textColor="@color/black_icon"
+            android:maxLines="1"
+            android:background="@null"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cm"
+            android:textColor="@color/black_icon"
+            android:layout_toRightOf="@id/welcome3_stature_et"
+            android:layout_alignBottom="@id/welcome3_stature_et"
+            android:gravity="center"
+            android:layout_alignTop="@id/welcome3_stature_et"
+            android:textSize="@dimen/welcome_font_size"/>
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_alignLeft="@id/welcome3_stature_tv"
+            android:layout_marginLeft="20dp"
+            android:layout_height="1dp"
+            android:background="@color/black_icon"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/welcome3_stature_et"
+            />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="200dp">
         <TextView
-            android:layout_centerInParent="true"
+            android:id="@+id/welcome3_weight_tv"
+            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="你的体重是？"
             android:textColor="@color/black_icon"
             android:textSize="@dimen/welcome_font_size"/>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <EditText
-            android:layout_centerInParent="true"
+            android:id="@+id/welcome3_weight_et"
+            android:layout_alignLeft="@id/welcome3_weight_tv"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="40dp"
+            android:textCursorDrawable="@drawable/sy_login_cursor_bg"
+            android:layout_below="@id/welcome3_weight_tv"
             android:textSize="@dimen/welcome_font_size"
-            android:text="50kg"
+            android:hint="50"
+            android:textColor="@color/black_icon"
+            android:maxLines="1"
+            android:background="@null"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kg"
+            android:textColor="@color/black_icon"
+            android:layout_toRightOf="@id/welcome3_weight_et"
+            android:layout_alignBottom="@id/welcome3_weight_et"
+            android:gravity="center"
+            android:layout_alignTop="@id/welcome3_weight_et"
+            android:textSize="@dimen/welcome_font_size"/>
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_alignLeft="@id/welcome3_weight_tv"
+            android:layout_marginLeft="25dp"
+            android:layout_height="1dp"
+            android:background="@color/black_icon"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/welcome3_weight_et"
+            />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
-            android:id="@+id/jsd_sex_date_next_btn"
+            android:id="@+id/welcome3_next_rl"
             android:layout_alignParentBottom="true"
             android:background="#57505F"
             android:layout_width="match_parent"

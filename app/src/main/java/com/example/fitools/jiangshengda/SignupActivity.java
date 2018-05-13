@@ -1,5 +1,6 @@
 package com.example.fitools.jiangshengda;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
@@ -19,12 +20,20 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitools.R;
+import com.example.fitools.shenyue.AppUtil;
 import com.example.fitools.shenyue.CountdownTextView;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+
+import java.io.UnsupportedEncodingException;
 
 public class SignupActivity extends AppCompatActivity {
-    private ImageView back;
     private EditText accountet;
     private EditText passwordet;
     private EditText identifyet;
@@ -33,6 +42,25 @@ public class SignupActivity extends AppCompatActivity {
     private TextView identifycodetv;
     private CountdownTextView timetv;
     int utilbt = 0;
+    private AsyncHttpResponseHandler mHandler = new AsyncHttpResponseHandler(){
+        @Override
+        public void onSuccess(int i, Header[] headers, byte[] bytes) {
+            try {
+                String str1 = new String(bytes,"UTF-8");
+                if (str1.equals("注册成功")){
+                    LoginActivity.actionStartActivity(SignupActivity.this,"ONE");
+                }else {
+                    Toast.makeText(getApplicationContext(),str1, Toast.LENGTH_SHORT).show();
+                }
+            }catch (UnsupportedEncodingException e){
+                e.printStackTrace();
+            }
+        }
+        @Override
+        public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +73,6 @@ public class SignupActivity extends AppCompatActivity {
      * 获得界面控件
      */
     private void getViews(){
-        back = (ImageView) findViewById(R.id.jsd_signup_return_btn);
         accountet = (EditText)findViewById(R.id.signup_account_et);
         passwordet = (EditText)findViewById(R.id.signup_password_et);
         identifyet = (EditText)findViewById(R.id.signup_identify_et);
@@ -68,12 +95,12 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SignupActivity.this.finish();
-            }
-        });
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SignupActivity.this.finish();
+//            }
+//        });
         passwordcb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -166,12 +193,28 @@ public class SignupActivity extends AppCompatActivity {
 
                     }else {
                         signupbt.setBackgroundColor(ContextCompat.getColor(SignupActivity.this, R.color.sblack));
+                        Thread thread = new Thread(){
+                            @Override
+                            public void run(){
+                                super.run();
+                                synhttprequestsignup();
+                            }
+                        };
+                        thread.start();
                     }
 
                 }
                 return false;
             }
         });
+    }
+    public void synhttprequestsignup(){
+        AsyncHttpClient client = new AsyncHttpClient();
+        String Url = "http://"+ AppUtil.JFinalServer.HOST+":"+AppUtil.JFinalServer.PORT+"/user/regist";
+        RequestParams params = new RequestParams();
+        params.add("user_name", accountet.getText().toString());
+        params.add("user_pwd", passwordet.getText().toString());
+        client.get(Url, params, mHandler);
     }
     /**
      * 隐藏状态栏

@@ -6,14 +6,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp">
-        <ImageView
-            android:id="@+id/jsd_signup_return_btn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/turn_left"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

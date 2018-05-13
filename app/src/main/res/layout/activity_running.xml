@@ -15,7 +15,6 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="?android:attr/actionModeShareDrawable"
             android:layout_toLeftOf="@+id/textView"/>
 
         <TextView
@@ -166,14 +165,14 @@
                 android:layout_width="0dip"
                 android:layout_weight="1"
                 android:layout_height="match_parent">
-                <TextView
+                <Chronometer
                     android:layout_centerInParent="true"
-                    android:id="@+id/textView9"
+                    android:id="@+id/timer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00:00:00"
                     android:textColor="@color/white"
                     android:textSize="30dp"
+                    android:format="00:00:00"
                     />
             </RelativeLayout>
             <RelativeLayout

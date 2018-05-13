@@ -20,46 +20,70 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 用于申请调用A-GPS模块 -->
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+        android:name="com.mob.MobApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!-- 通过AndroidManifest配置AppKey和AppSecret，如果你选择通过代码配置，则不需要配置以下meta-data -->
+        <!--<meta-data android:name="Mob-AppKey" android:value="25bcf3d49f41b"/>-->
+        <!--<meta-data android:name="Mob-AppSecret" android:value=" ab3e4a89f26d81f5e223e07f1ac65a43"/>-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="cb5e2771f8b7483ce90b3c34ad21eaac" />
 
-        <activity android:name=".jiangshengda.MainActivity"></activity>
-        <activity android:name=".jiangshengda.SettingActivity" />
-        <activity android:name=".jiangshengda.RunningActivity" />
-        <activity android:name=".jiangshengda.LoginActivity">
-
-        </activity>
-        <activity android:name=".jiangshengda.SignupActivity" />
-        <activity android:name=".jiangshengda.RunTopActivity" />
-        <activity android:name=".jiangshengda.TrainTopActivity" />
-        <activity android:name=".jiangshengda.RunCountdownActivity" />
-        <activity android:name=".jiangshengda.ForgetPasswdActivity" />
-        <activity android:name=".jiangshengda.WelcomeOneActivity" />
-        <activity android:name=".jiangshengda.WelcomeTwoActivity" />
-        <activity android:name=".jiangshengda.WelcomeThreeActivity" />
-        <activity android:name=".jiangshengda.WelcomeFourActivity" />
-        <activity android:name=".jiangshengda.WelcomeFiveActivity" />
-        <activity
-            android:name=".jiangshengda.TrainVideoActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".jiangshengda.MapActivity" />
-        <activity android:name=".caizihuan.EditPersonalActivity">
+        <activity android:name=".jiangshengda.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".jiangshengda.SettingActivity" />
+        <activity android:name=".jiangshengda.RunningActivity" />
+        <activity android:name=".jiangshengda.LoginActivity">
+        </activity>
+        <activity android:name=".jiangshengda.SignupActivity" />
+        <activity android:name=".jiangshengda.RunTopActivity" />
+        <activity android:name=".jiangshengda.TrainTopActivity" />
+        <activity android:name=".jiangshengda.RunCountdownActivity" />
+        <activity android:name=".jiangshengda.ForgetPasswdActivity" />
+        <activity android:name=".jiangshengda.WelcomeOneActivity"></activity>
+        <activity android:name=".jiangshengda.WelcomeTwoActivity"></activity>
+        <activity android:name=".jiangshengda.WelcomeThreeActivity" />
+        <activity android:name=".jiangshengda.WelcomeFourActivity" />
+        <activity android:name=".jiangshengda.WelcomeFiveActivity" />
+
+        <service android:name="com.amap.api.location.APSService" />
+        <service
+            android:name=".jiangshengda.MusicServer"
+            android:exported="true"
+            android:process=":remote"></service>
+
+        <activity
+            android:name=".jiangshengda.TrainVideoActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".jiangshengda.MapActivity" />
+        <activity android:name=".jiangshengda.SMSignupActivity"></activity>
     </application>
 
 </manifest>

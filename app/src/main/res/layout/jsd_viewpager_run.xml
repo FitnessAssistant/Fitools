@@ -24,6 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
                 <TextView
+                    android:id="@+id/viewpager_run_speed"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -36,6 +37,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2">
                 <TextView
+                    android:id="@+id/viewpager_run_timer"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,6 +50,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
                 <TextView
+                    android:id="@+id/viewpager_run_distance"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
