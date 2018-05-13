@@ -159,59 +159,9 @@ public class EditPersonalActivity extends Activity {
         AsyncHttpClient client = new AsyncHttpClient();
 
         JSONObject jsonObject = new JSONObject();
-        /*try {
-            jsonObject.put("userid", "123");
-            jsonObject.put("usernickname", tvNickName.getText().toString());
-            if (tvSexValue.getText().toString().equals("男")) {
-                jsonObject.put("usersex", "0");
-            } else if (tvSexValue.getText().toString().equals("女")) {
-                jsonObject.put("usersex", "1");
-            }
-            jsonObject.put("userbirthday", tvBirthDate.getText().toString());
-            jsonObject.put("usercity", tvCityValue.getText().toString());
-
-            String content = String.valueOf(jsonObject);
-            *//**
-         * 请求地址
-         *//*
-            String url = "http://" + AppUtil.JFinalServer.HOST + ":" + AppUtil.JFinalServer.PORT + "/user/edit_later";
-            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-            connection.setConnectTimeout(5000);
-            connection.setRequestMethod("POST");
-            connection.setDoOutput(true);
-            connection.setRequestProperty("User-Agent", "Fiddler");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("Charset", "UTF-8");
-            OutputStream os = connection.getOutputStream();
-            os.write(content.getBytes());
-            connection.connect();
-            os.close();
-            *//**
-         * 服务器返回结果
-         * 继续干什么事情....待续
-         *//*
-            //String result = read(connection.getInputStream());
-            BufferedReader bufReader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
-            String backData = "";
-            String line = "";
-            while ((line = bufReader.readLine()) != null)
-                backData += line + "\r\n";
-            return backData;
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "编辑失败";
-    }*/
-
         RequestParams params = new RequestParams();
         String Url = "http://" + AppUtil.JFinalServer.HOST + ":" + AppUtil.JFinalServer.PORT + "/user/edit_later";
-        params.add("user_id", "123");
+        params.add("user_id", MainActivity.USERID);
         String newcity = null,newnickname = null;
         try {
             newnickname = new String(tvNickName.getText().toString().getBytes("UTF-8"),"UTF-8");

@@ -9,11 +9,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-
+import android.widget.RelativeLayout;
 import com.example.fitools.R;
 
 public class SettingActivity extends AppCompatActivity {
     private ImageView back_img;
+    private RelativeLayout edit_rl;
 
 
     @Override
@@ -21,10 +22,18 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jsd_activity_setting);
         back_img = (ImageView) findViewById(R.id.jsd_setting_return_btn);
+        edit_rl = (RelativeLayout)findViewById(R.id.to_editpersonal_rl);
         back_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             SettingActivity.this.finish();
+            }
+        });
+        edit_rl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingActivity.this,com.example.fitools.caizihuan.EditPersonalActivity.class);
+                startActivity(intent);
             }
         });
         hidestatusbar();

@@ -84,6 +84,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".jiangshengda.MapActivity" />
         <activity android:name=".jiangshengda.SMSignupActivity"></activity>
+        <activity android:name=".caizihuan.EditPersonalActivity"></activity>
     </application>
 
 </manifest>
