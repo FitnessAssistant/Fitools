@@ -10,11 +10,11 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.example.fitools.R;
+import android.content.Intent;
 
 public class SettingActivity extends AppCompatActivity {
     private ImageView back_img;
     private RelativeLayout edit_rl;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class SettingActivity extends AppCompatActivity {
         edit_rl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SettingActivity.this,com.example.fitools.caizihuan.EditPersonalActivity.class);
+                Intent intent = new Intent(SettingActivity.this,EditPersonalActivity.class);
                 startActivity(intent);
             }
         });
