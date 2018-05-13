@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/modena"
-    tools:context=".jiangshengda.RunningActivity">
+    tools:context=".Activity.RunningActivity">
     <RelativeLayout
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
