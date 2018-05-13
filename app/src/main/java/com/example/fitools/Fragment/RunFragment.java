@@ -49,7 +49,7 @@ public class RunFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.jsd_fragment_run,null);
+        View v = inflater.inflate(R.layout.fragment_run,null);
         run_xml = (LinearLayout) v.findViewById(R.id.run_xml);
         viewPager = (ViewPager) v.findViewById(R.id.run_viewpager);
         map_btn = (ImageView) v.findViewById(R.id.run_map_btn);

@@ -26,7 +26,7 @@ public class FitFragment extends Fragment {
 
     private TrainFragment mTrain;
     private GoogleApiClient client;
-    private RunFragment mRun;
+    private com.example.fitools.jiangshengda.RunFragment mRun;
     private LinearLayout fitll;
     private RelativeLayout exercise_btn;
     private RelativeLayout run_btn;
@@ -39,7 +39,7 @@ public class FitFragment extends Fragment {
      */
     private void initFragments(){
         mTrain = new TrainFragment();
-        mRun = new RunFragment();
+        mRun = new com.example.fitools.jiangshengda.RunFragment();
     }
 
     /**
@@ -60,7 +60,7 @@ public class FitFragment extends Fragment {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         if (mRun == null) {
-            mRun = new RunFragment();
+            mRun = new com.example.fitools.jiangshengda.RunFragment();
         }
         //3、设置页面
         transaction.replace(R.id.fit_fl, mRun);

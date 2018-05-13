@@ -24,7 +24,7 @@ import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.model.LatLng;
 import com.example.fitools.R;
 import com.example.fitools.Service.MusicServer;
-import com.example.fitools.Fragment.RunFragment;
+import com.example.fitools.jiangshengda.RunFragment;
 
 public class RunningActivity extends Activity {
     private int con_music = 1;
@@ -276,7 +276,7 @@ public class RunningActivity extends Activity {
     }
 
     private void sendRunMeg(){
-        RunFragment = new RunFragment();
+        RunFragment = new com.example.fitools.jiangshengda.RunFragment();
 //        manager = getFragmentManager();
 //        FragmentTransaction transaction = manager.beginTransaction();
         Bundle sendRunMeg = new Bundle();
